@@ -125,63 +125,58 @@ export const experienceData = [
 export const skillsData = [
   {
     name: "JavaScript",
-    icon: "/images/logos/react.png",
+    icon: "/images/logos/javascript.png",
     level: "Advanced",
   },
   {
     name: "Java",
-    icon: "/images/logos/company-logo-1.png",
+    icon: "/images/logos/java.png",
     level: "Advanced",
   },
   {
     name: "C++",
-    icon: "/images/logos/company-logo-2.png",
+    icon: "/images/logos/cpp.png",
     level: "Advanced",
   },
   {
     name: "React.js",
     icon: "/images/logos/react.png",
-    level: "Advanced",
+    level: "Intermediate",
   },
   {
     name: "Node.js",
     icon: "/images/logos/node.png",
-    level: "Advanced",
-  },
-  {
-    name: "Express.js",
-    icon: "/images/logos/node.png",
-    level: "Advanced",
+    level: "Beginner",
   },
   {
     name: "MongoDB",
-    icon: "/images/logos/company-logo-1.png",
-    level: "Advanced",
-  },
-  {
-    name: "Redux",
-    icon: "/images/logos/react.png",
+    icon: "/images/logos/mongodb.png",
     level: "Intermediate",
   },
   {
+    name: "Redux",
+    icon: "/images/logos/redux.png",
+    level: "Beginner–Intermediate",
+  },
+  {
     name: "Tailwind CSS",
-    icon: "/images/logos/company-logo-3.png",
-    level: "Advanced",
+    icon: "/images/logos/tailwind.png",
+    level: "Intermediate",
   },
   {
     name: "HTML/CSS",
-    icon: "/images/logos/company-logo-4.png",
+    icon: "/images/logos/html-css.png",
     level: "Advanced",
   },
   {
     name: "Vite",
-    icon: "/images/logos/company-logo-5.png",
-    level: "Advanced",
+    icon: "/images/logos/vite.png",
+    level: "Beginner–Intermediate",
   },
   {
     name: "Git & GitHub",
     icon: "/images/logos/git.svg",
-    level: "Advanced",
+    level: "Intermediate",
   },
 ];
 
