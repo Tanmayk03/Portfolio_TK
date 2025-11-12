@@ -10,10 +10,30 @@ export const words = [
 
 ];
 export const counterItems = [
-  { value: 1, suffix: "+", label: "Years of Experience" },
-  { value: 2, suffix: "+", label: "Completed Projects" },
-  { value: 8, suffix: ".34", label: "CGPA" },
-  { value: 1, suffix: "st", label: "Place - App Dev Competition" },
+  { 
+    value: 1, 
+    suffix: "", 
+    label: "Internship – Web Development (React + Express)",
+    prefix: ""
+  },
+  { 
+    value: 3, 
+    suffix: "rd Year", 
+    label: "B.Tech (Data Science)",
+    prefix: ""
+  },
+  { 
+    value: 15, 
+    suffix: "+", 
+    label: "Repositories",
+    prefix: ""
+  },
+  { 
+    value: 9, 
+    suffix: "+", 
+    label: "Certifications",
+    prefix: ""
+  },
 ];
 export const navLinks = [
   {

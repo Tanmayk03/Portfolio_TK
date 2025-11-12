@@ -31,6 +31,25 @@ const AnimatedCounter = () => {
             numberElement.textContent = `${item.value}${item.suffix}`;
           },
         });
+      } else if (item.suffix === "" && item.label.includes("Internship")) {
+        // For internship - just show the number without animation
+        numberElement.textContent = `${item.value}`;
+      } else if (item.suffix.includes("rd Year") || item.suffix.includes("st") || item.suffix.includes("nd") || item.suffix.includes("th")) {
+        // For ordinal numbers like "3rd Year" - animate and show with suffix
+        gsap.set(numberElement, { innerText: "0" });
+        gsap.to(numberElement, {
+          innerText: item.value,
+          duration: 2.5,
+          ease: "power2.out",
+          snap: { innerText: 1 },
+          scrollTrigger: {
+            trigger: "#counter",
+            start: "top center",
+          },
+          onComplete: () => {
+            numberElement.textContent = `${item.value}${item.suffix}`;
+          },
+        });
       } else {
         // Set initial value to 0
         gsap.set(numberElement, { innerText: "0" });
@@ -64,9 +83,13 @@ const AnimatedCounter = () => {
             className="bg-zinc-900 rounded-lg p-10 flex flex-col justify-center"
           >
             <div className="counter-number text-white-50 text-5xl font-bold mb-2">
-              0 {item.suffix}
+              {item.suffix === "" && item.label.includes("Internship") 
+                ? item.value 
+                : item.suffix.includes("rd Year") || item.suffix.includes("st") || item.suffix.includes("nd") || item.suffix.includes("th")
+                ? `${item.value}${item.suffix}`
+                : `0 ${item.suffix}`}
             </div>
-            <div className="text-white-50 text-lg">{item.label}</div>
+            <div className="text-white-50 text-lg leading-tight">{item.label}</div>
           </div>
         ))}
       </div>

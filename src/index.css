@@ -369,12 +369,25 @@ section {
   }
 
   .tech-card-content {
-    @apply flex flex-col md:justify-center items-center xl:gap-5 xl:h-[50vh] overflow-hidden relative z-10 group-hover:cursor-grab;
+    @apply flex flex-col md:justify-center items-center gap-3 overflow-hidden relative z-10 group-hover:cursor-pointer;
+    transition: all 0.3s ease;
+    min-height: auto;
 
     & p {
       color: var(--color-white-50);
-      @apply text-lg 2xl:text-2xl pb-5 xl:pb-0 font-semibold text-center;
+      @apply text-base md:text-lg font-semibold text-center;
     }
+  }
+
+  /* Very rounded shape for skill cards - modern and unique */
+  .skill-rounded {
+    border-radius: 2.5rem;
+    -webkit-border-radius: 2.5rem;
+  }
+
+  .skill-rounded .tech-card-animated-bg {
+    border-radius: 2.5rem;
+    -webkit-border-radius: 2.5rem;
   }
 
   .tech-grid {

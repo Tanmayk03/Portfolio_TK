@@ -9,7 +9,6 @@ const AppShowcase = () => {
   const sectionRef = useRef(null);
   const rydeRef = useRef(null);
   const libraryRef = useRef(null);
-  const ycDirectoryRef = useRef(null);
 
   useGSAP(() => {
     // Animation for the main section
@@ -20,7 +19,7 @@ const AppShowcase = () => {
     );
 
     // Animations for each app showcase
-    const cards = [rydeRef.current, libraryRef.current, ycDirectoryRef.current];
+    const cards = [rydeRef.current, libraryRef.current];
 
     cards.forEach((card, index) => {
       gsap.fromTo(
@@ -87,22 +86,6 @@ const AppShowcase = () => {
                 <span className="hero-badge text-xs">HTML</span>
                 <span className="hero-badge text-xs">CSS</span>
                 <span className="hero-badge text-xs">Chrome Extension APIs</span>
-              </div>
-            </div>
-
-            <div className="project" ref={ycDirectoryRef}>
-              <div className="image-wrapper bg-[#FFE7EB]">
-                <img src="/images/project3.png" alt="Portfolio Website" />
-              </div>
-              <h2>Portfolio Website</h2>
-              <p className="text-white-50 text-sm mt-2">
-                Interactive portfolio website built with React, Three.js, and GSAP animations.
-              </p>
-              <div className="flex flex-wrap gap-2 mt-3">
-                <span className="hero-badge text-xs">React</span>
-                <span className="hero-badge text-xs">Three.js</span>
-                <span className="hero-badge text-xs">GSAP</span>
-                <span className="hero-badge text-xs">Tailwind CSS</span>
               </div>
             </div>
           </div>
