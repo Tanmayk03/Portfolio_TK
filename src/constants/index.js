@@ -126,17 +126,17 @@ export const skillsData = [
   {
     name: "JavaScript",
     icon: "/images/logos/javascript.png",
-    level: "Advanced",
+    level: "Intermediate",
   },
   {
     name: "Java",
     icon: "/images/logos/java.png",
-    level: "Advanced",
+    level: "Intermediate",
   },
   {
     name: "C++",
     icon: "/images/logos/cpp.png",
-    level: "Advanced",
+    level: "Intermediate",
   },
   {
     name: "React.js",
@@ -166,7 +166,7 @@ export const skillsData = [
   {
     name: "HTML/CSS",
     icon: "/images/logos/html-css.png",
-    level: "Advanced",
+    level: "Intermediate",
   },
   {
     name: "Vite",

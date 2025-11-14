@@ -55,7 +55,7 @@ const Hero = () => {
 
           <div className="relative mt-6 z-10 pointer-events-none">
   <p className="md:text-xl text-lg leading-relaxed" style={{ color: 'var(--color-white-50)' }}>
-    I turn <span className="font-semibold text-white">ideas</span> into fast, beautiful, and scalable web experiences—
+    I turn <span className="font-semibold text-white">ideas</span> into fast, beautiful, and scalable web experiences
     <br className="hidden md:block" />
     powered by Java, C++, JavaScript, and a modern full-stack toolkit
     <br className="hidden md:block" />
