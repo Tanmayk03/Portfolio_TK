@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 const CertificatesSection = () => {
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const certificatesData = [
     {
@@ -76,13 +77,32 @@ const CertificatesSection = () => {
   ];
 
   useGSAP(() => {
+    // Title animation
     gsap.fromTo(
-      sectionRef.current,
-      { opacity: 0, y: 50 },
+      sectionRef.current?.querySelector("h2"),
+      { opacity: 0, y: -30, scale: 0.9 },
       {
         opacity: 1,
         y: 0,
+        scale: 1,
         duration: 1,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      }
+    );
+
+    // Description animation
+    gsap.fromTo(
+      sectionRef.current?.querySelector("p"),
+      { opacity: 0, x: -20 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        delay: 0.2,
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
@@ -94,12 +114,14 @@ const CertificatesSection = () => {
       if (card) {
         gsap.fromTo(
           card,
-          { opacity: 0, scale: 0.95 },
+          { opacity: 0, scale: 0.9, y: 30 },
           {
             opacity: 1,
             scale: 1,
+            y: 0,
             duration: 0.6,
-            delay: index * 0.15,
+            delay: index * 0.08,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: card,
               start: "top 85%",
@@ -110,10 +132,45 @@ const CertificatesSection = () => {
     });
   }, []);
 
+  const handleMouseEnter = (index) => {
+    setHoveredIndex(index);
+    const card = cardsRef.current[index];
+    
+    if (card) {
+      gsap.to(card, {
+        scale: 1.03,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    }
+  };
+
+  const handleMouseLeave = (index) => {
+    setHoveredIndex(null);
+    const card = cardsRef.current[index];
+    
+    if (card) {
+      gsap.to(card, {
+        scale: 1,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    }
+  };
+
   return (
-    <section id="certificates" ref={sectionRef} className="section-padding">
-      <div className="padding-x-lg">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">Certificates & Achievements</h2>
+    <section id="certificates" ref={sectionRef} className="section-padding relative">
+      {/* Cool animated background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-32 left-16 w-80 h-80 bg-amber-500/15 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-32 right-16 w-96 h-96 bg-rose-500/15 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-orange-500/10 rounded-full blur-3xl" />
+      </div>
+
+      <div className="padding-x-lg relative z-10">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-400 via-rose-400 to-orange-400 bg-clip-text text-transparent">
+          Certificates & Achievements
+        </h2>
         <p className="text-white-50 text-xl mb-12">
           Professional certifications and notable achievements
         </p>
@@ -123,20 +180,52 @@ const CertificatesSection = () => {
             <div
               key={index}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="card-border rounded-xl p-6 md:p-8 hover:border-white/20 transition-all duration-300"
+              className="relative rounded-xl overflow-hidden group cursor-pointer"
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={() => handleMouseLeave(index)}
             >
-              <div className="flex items-start gap-3 mb-3">
-                <span className="text-3xl">🏆</span>
-                <div className="flex-1">
-                  <h3 className="text-xl md:text-2xl font-bold mb-2">
+              {/* Glass morphism background */}
+              <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl" />
+              
+              {/* Animated gradient on hover */}
+              <div 
+                className={`absolute inset-0 bg-gradient-to-br from-amber-500/20 via-rose-500/20 to-orange-500/20 rounded-xl opacity-0 transition-opacity duration-500 ${
+                  hoveredIndex === index ? "opacity-100" : ""
+                }`}
+              />
+              
+              {/* Glow effect on hover */}
+              <div 
+                className={`absolute inset-0 bg-gradient-to-br from-amber-400/20 via-rose-400/20 to-orange-400/20 rounded-xl blur-xl transition-opacity duration-500 ${
+                  hoveredIndex === index ? "opacity-100" : "opacity-0"
+                }`}
+              />
+
+              <div className="relative z-10 p-6 md:p-8">
+                <div className="mb-4">
+                  <h3 className="text-lg md:text-xl font-bold mb-3 leading-tight">
                     {cert.title}
                   </h3>
-                  <p className="text-white-50 text-sm mb-1 font-semibold">Issued by: {cert.issuer}</p>
-                  <p className="text-white-50 text-xs mb-2">{cert.date}</p>
-                  <p className="text-white-50 text-xs mb-3">Duration: {cert.duration}</p>
                 </div>
+                
+                <div className="space-y-2 mb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-gradient-to-r from-amber-400 to-rose-400 rounded-full"></span>
+                    <p className="text-white-50 text-sm font-semibold">
+                      {cert.issuer}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-gradient-to-r from-rose-400 to-orange-400 rounded-full"></span>
+                    <p className="text-white-50 text-xs">{cert.date}</p>
+                  </div>
+                  <div className="inline-block bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1">
+                    <p className="text-white-50 text-xs">Duration: {cert.duration}</p>
+                  </div>
+                </div>
+                
+                <p className="text-white-50 text-sm leading-relaxed">{cert.description}</p>
               </div>
-              <p className="text-white-50 text-sm">{cert.description}</p>
             </div>
           ))}
         </div>
@@ -146,4 +235,3 @@ const CertificatesSection = () => {
 };
 
 export default CertificatesSection;
-

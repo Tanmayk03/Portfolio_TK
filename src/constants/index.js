@@ -180,29 +180,6 @@ export const skillsData = [
   },
 ];
 
-export const testimonialsData = [
-  {
-    name: "Client Name",
-    role: "Project Manager",
-    review: "Tanmay delivered an exceptional full-stack application that exceeded our expectations. His attention to detail and technical expertise made the project a success.",
-    image: "/images/client1.png",
-    rating: 5,
-  },
-  {
-    name: "Client Name",
-    role: "CEO",
-    review: "Working with Tanmay was a great experience. He transformed our ideas into a beautiful, functional web application. Highly recommended!",
-    image: "/images/client2.png",
-    rating: 5,
-  },
-  {
-    name: "Client Name",
-    role: "Founder",
-    review: "Tanmay's technical skills and professionalism are outstanding. He delivered our project on time and with excellent quality.",
-    image: "/images/client3.png",
-    rating: 5,
-  },
-];
 
 export const socialLinks = [
   {

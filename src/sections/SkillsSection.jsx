@@ -140,9 +140,18 @@ const SkillsSection = () => {
   };
 
   return (
-    <section id="skills" ref={sectionRef} className="section-padding">
-      <div className="padding-x-lg">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">Skills & Technologies</h2>
+    <section id="skills" ref={sectionRef} className="section-padding relative">
+      {/* Cool animated background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl" />
+      </div>
+      
+      <div className="padding-x-lg relative z-10">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+          Skills & Technologies
+        </h2>
         <p className="text-white-50 text-xl mb-12">
           Technologies I work with to build amazing digital experiences
         </p>
@@ -152,33 +161,39 @@ const SkillsSection = () => {
             <div
               key={index}
               ref={(el) => (skillsRef.current[index] = el)}
-              className="tech-card-content card-border skill-rounded p-4 md:p-5 group cursor-pointer relative overflow-hidden"
+              className="relative p-5 md:p-6 group cursor-pointer overflow-hidden skill-rounded min-h-[140px] md:min-h-[160px] flex items-center justify-center"
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
             >
-              {/* Animated background gradient */}
-              <div className="tech-card-animated-bg" />
+              {/* Glass morphism background */}
+              <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/10 skill-rounded" />
               
-              {/* Glow effect on hover - subtle */}
+              {/* Animated gradient border */}
               <div 
-                className={`absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-cyan-500/10 skill-rounded opacity-0 transition-opacity duration-300 ${
-                  hoveredIndex === index ? "opacity-100" : ""
+                className={`absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 skill-rounded opacity-0 transition-opacity duration-500 ${
+                  hoveredIndex === index ? "opacity-20" : ""
                 }`}
               />
               
-              <div className="tech-icon-wrapper relative z-10">
+              {/* Glow effect on hover */}
+              <div 
+                className={`absolute inset-0 bg-gradient-to-br from-blue-400/30 via-purple-400/30 to-cyan-400/30 skill-rounded blur-xl transition-opacity duration-500 ${
+                  hoveredIndex === index ? "opacity-100" : "opacity-0"
+                }`}
+              />
+              
+              <div className="tech-icon-wrapper relative z-10 flex flex-col items-center justify-center text-center h-full">
                 <img
                   ref={(el) => (iconsRef.current[index] = el)}
                   src={skill.icon}
                   alt={skill.name}
-                  className="w-16 h-16 md:w-20 md:h-20 object-contain mb-2 transition-all duration-300"
+                  className="w-14 h-14 md:w-16 md:h-16 object-contain mb-3 transition-all duration-300 drop-shadow-2xl"
                 />
+                <p className="text-base md:text-lg font-semibold mb-1 transition-all duration-300">
+                  {skill.name}
+                </p>
+                <p className="text-white-50 text-xs">{skill.level}</p>
               </div>
-              
-              <p className="text-lg md:text-xl font-semibold mb-1 relative z-10 transition-all duration-300">
-                {skill.name}
-              </p>
-              <p className="text-white-50 text-xs md:text-sm relative z-10">{skill.level}</p>
             </div>
           ))}
         </div>
@@ -188,4 +203,3 @@ const SkillsSection = () => {
 };
 
 export default SkillsSection;
-

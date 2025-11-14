@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const AnimatedCounter = () => {
   const counterRef = useRef(null);
   const countersRef = useRef([]);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   useGSAP(() => {
     countersRef.current.forEach((counter, index) => {
@@ -73,23 +74,76 @@ const AnimatedCounter = () => {
     }, counterRef);
   }, []);
 
+  const handleMouseEnter = (index) => {
+    setHoveredIndex(index);
+    const card = countersRef.current[index];
+    
+    if (card) {
+      gsap.to(card, {
+        scale: 1.05,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    }
+  };
+
+  const handleMouseLeave = (index) => {
+    setHoveredIndex(null);
+    const card = countersRef.current[index];
+    
+    if (card) {
+      gsap.to(card, {
+        scale: 1,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    }
+  };
+
   return (
-    <div id="counter" ref={counterRef} className="padding-x-lg xl:mt-0 mt-32">
-      <div className="mx-auto grid-4-cols">
+    <div id="counter" ref={counterRef} className="padding-x-lg xl:mt-0 mt-32 relative">
+      {/* Cool animated background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none -top-20 -bottom-20">
+        <div className="absolute top-1/2 left-1/4 w-72 h-72 bg-teal-500/15 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-cyan-500/15 rounded-full blur-3xl" />
+      </div>
+
+      <div className="mx-auto grid-4-cols relative z-10">
         {counterItems.map((item, index) => (
           <div
             key={index}
             ref={(el) => el && (countersRef.current[index] = el)}
-            className="bg-zinc-900 rounded-lg p-10 flex flex-col justify-center"
+            className="relative rounded-lg p-10 flex flex-col justify-center overflow-hidden group cursor-pointer"
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={() => handleMouseLeave(index)}
           >
-            <div className="counter-number text-white-50 text-5xl font-bold mb-2">
-              {item.suffix === "" && item.label.includes("Internship") 
-                ? item.value 
-                : item.suffix.includes("rd Year") || item.suffix.includes("st") || item.suffix.includes("nd") || item.suffix.includes("th")
-                ? `${item.value}${item.suffix}`
-                : `0 ${item.suffix}`}
+            {/* Glass morphism background */}
+            <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg" />
+            
+            {/* Animated gradient on hover */}
+            <div 
+              className={`absolute inset-0 bg-gradient-to-br from-teal-500/20 via-cyan-500/20 to-blue-500/20 rounded-lg opacity-0 transition-opacity duration-500 ${
+                hoveredIndex === index ? "opacity-100" : ""
+              }`}
+            />
+            
+            {/* Glow effect on hover */}
+            <div 
+              className={`absolute inset-0 bg-gradient-to-br from-teal-400/20 via-cyan-400/20 to-blue-400/20 rounded-lg blur-xl transition-opacity duration-500 ${
+                hoveredIndex === index ? "opacity-100" : "opacity-0"
+              }`}
+            />
+
+            <div className="relative z-10">
+              <div className="counter-number text-white text-5xl font-bold mb-2">
+                {item.suffix === "" && item.label.includes("Internship") 
+                  ? item.value 
+                  : item.suffix.includes("rd Year") || item.suffix.includes("st") || item.suffix.includes("nd") || item.suffix.includes("th")
+                  ? `${item.value}${item.suffix}`
+                  : `0 ${item.suffix}`}
+              </div>
+              <div className="text-white-50 text-lg leading-tight">{item.label}</div>
             </div>
-            <div className="text-white-50 text-lg leading-tight">{item.label}</div>
           </div>
         ))}
       </div>
