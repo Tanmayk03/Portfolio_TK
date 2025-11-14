@@ -53,10 +53,12 @@ const Hero = () => {
             <h1>that Deliver Results</h1>
           </div>
 
-          <p className="text-white-50 md:text-xl relative z-10 pointer-events-none mt-6">
-            Full-stack developer skilled in Java, C++, JavaScript, React.js, Node.js, Express.js, MongoDB, Redux, HTML, CSS, Tailwind CSS, and Vite. Experienced in building responsive web apps, Chrome extensions, and API integrations.
-          </p>
-
+          <p className="md:text-xl relative z-10 pointer-events-none mt-6" style={{ color: 'var(--color-white-50)' }}>
+  Full-stack developer skilled in <br className="hidden md:block" />
+  Java, C++, JavaScript, React.js, Node.js, Express.js, MongoDB, Redux, HTML, <br className="hidden md:block" />
+  CSS, Tailwind CSS, and Vite. Experienced in building responsive web apps, <br className="hidden md:block" />
+  Chrome extensions, and API integrations.
+</p>
           <Button
             className="md:w-80 md:h-16 h-12 mt-6"
             href="#work"
