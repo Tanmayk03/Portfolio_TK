@@ -1,43 +1,63 @@
-# Portfolio
+# Portfolio_TK
 
-A personal portfolio site to showcase projects, skills, and contact information.
+Welcome to the **Portfolio_TK** repository!
+
+This project serves as the codebase for [Tanmay Kapoor's Portfolio Website](https://tanmaykapoorportfolio.vercel.app).
+
+## Description
+
+**Portfolio_TK** is an open-source personal portfolio site built to showcase skills, experience, and projects. It is primarily written in JavaScript and aims to provide an engaging and informative online presence.
 
 ## Features
-- Project showcase with screenshots, descriptions, and links
-- Resume / skills section
-- Contact form or contact details
-- Responsive layout and accessible design
-- Easy to customize and extend
 
-## Tech stack (suggested)
-- HTML, CSS (or a framework like Tailwind/Bootstrap)
-- JavaScript (or a framework: React/Vue/Svelte)
-- Optional: static site generator (Gatsby/Next.js/Vite), deployment via GitHub Pages / Netlify / Vercel
+- Presentation of personal skills, experience, and achievements
+- Display of programming and project portfolio
+- Responsive design for viewing on desktop and mobile
+- Hosted on Vercel for fast and reliable performance
 
-## Getting started
+## Getting Started
 
-1. Clone the repo
-    - git clone <repo-url>
-2. Install dependencies (if applicable)
-    - npm install
-3. Run locally
-    - npm run dev or open index.html
+To view the portfolio online, visit:  
+[https://tanmaykapoorportfolio.vercel.app](https://tanmaykapoorportfolio.vercel.app)
 
-## Project structure (example)
-- /src — source files (HTML, CSS, JS, assets)
-- /public — static files (images, favicon)
-- README.md — this file
+To run locally:
 
-## Deployment
-- Build: npm run build
-- Deploy to GitHub Pages, Netlify, or Vercel following provider docs
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/Tanmayk03/Portfolio_TK.git
+   ```
+2. Change to the project directory:
+   ```bash
+   cd Portfolio_TK
+   ```
+3. Install dependencies (assuming a Node.js/JavaScript-based project):
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm start
+   ```
+   The site should be accessible at `http://localhost:3000`.
 
-## Development tips
-- Keep components small and reusable
-- Store project metadata (title, description, links) in a single JSON / frontmatter file for easy updates
-- Optimize images and use responsive techniques
+## Technologies Used
+
+- JavaScript
+- Node.js (if applicable)
+- (Add any framework/library if used: e.g., React, Next.js, etc.)
 
 ## Contributing
-- Fork -> branch -> PR
-- Keep commits focused and well-documented
-- Add tests or visual checks for new features
+
+Feel free to fork, submit issues, or contribute with pull requests!
+
+## License
+
+This project does not yet specify a license. Please contact the repository owner if you wish to use the code for production purposes.
+
+## Author
+
+- [Tanmay Kapoor](https://github.com/Tanmayk03)
+
+---
+
+_This README is generated based on available public repository metadata and the project homepage. Please customize it further based on your project's specifics._
