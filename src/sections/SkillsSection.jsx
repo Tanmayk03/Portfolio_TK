@@ -205,7 +205,7 @@ const SkillsSection = () => {
             {skillsData.map((skill, index) => (
               <div
                 key={`mobile-${index}`}
-                className="relative p-4 group cursor-pointer overflow-hidden skill-rounded min-w-[130px] flex-shrink-0"
+                className="relative p-4 group cursor-pointer overflow-hidden skill-rounded min-w-[140px] flex-shrink-0"
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={() => handleMouseLeave(index)}
               >
@@ -226,11 +226,11 @@ const SkillsSection = () => {
                   }`}
                 />
                 
-                <div className="relative z-10 flex flex-col items-center justify-center text-center min-h-[120px]">
+                <div className="relative z-10 flex flex-col items-center justify-center text-center min-h-[130px]">
                   <img
                     src={skill.icon}
                     alt={skill.name}
-                    className="w-12 h-12 object-contain mb-2 transition-all duration-300 drop-shadow-2xl"
+                    className="w-14 h-14 object-contain mb-2 transition-all duration-300 drop-shadow-2xl"
                   />
                   <p className="text-sm font-semibold mb-1 transition-all duration-300">
                     {skill.name}
