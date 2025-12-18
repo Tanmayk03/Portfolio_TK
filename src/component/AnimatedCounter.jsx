@@ -108,45 +108,50 @@ const AnimatedCounter = () => {
         <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-cyan-500/15 rounded-full blur-3xl" />
       </div>
 
-      <div className="mx-auto grid-4-cols relative z-10">
-        {counterItems.map((item, index) => (
-          <div
-            key={index}
-            ref={(el) => el && (countersRef.current[index] = el)}
-            className="relative rounded-lg p-10 flex flex-col justify-center overflow-hidden group cursor-pointer"
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={() => handleMouseLeave(index)}
-          >
-            {/* Glass morphism background */}
-            <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg" />
-            
-            {/* Animated gradient on hover */}
-            <div 
-              className={`absolute inset-0 bg-gradient-to-br from-teal-500/20 via-cyan-500/20 to-blue-500/20 rounded-lg opacity-0 transition-opacity duration-500 ${
-                hoveredIndex === index ? "opacity-100" : ""
-              }`}
-            />
-            
-            {/* Glow effect on hover */}
-            <div 
-              className={`absolute inset-0 bg-gradient-to-br from-teal-400/20 via-cyan-400/20 to-blue-400/20 rounded-lg blur-xl transition-opacity duration-500 ${
-                hoveredIndex === index ? "opacity-100" : "opacity-0"
-              }`}
-            />
+      {/* Responsive grid layout - 2x2 on mobile, 4 columns on desktop */}
+      <div className="mx-auto relative z-10">
+        <div className="grid grid-cols-2 md:grid-4-cols gap-3 md:gap-4">
+          {counterItems.map((item, index) => (
+            <div
+              key={index}
+              ref={(el) => el && (countersRef.current[index] = el)}
+              className="relative rounded-lg p-4 md:p-10 flex flex-col justify-center overflow-hidden group cursor-pointer"
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={() => handleMouseLeave(index)}
+            >
+              {/* Glass morphism background */}
+              <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg" />
+              
+              {/* Animated gradient on hover */}
+              <div 
+                className={`absolute inset-0 bg-gradient-to-br from-teal-500/20 via-cyan-500/20 to-blue-500/20 rounded-lg opacity-0 transition-opacity duration-500 ${
+                  hoveredIndex === index ? "opacity-100" : ""
+                }`}
+              />
+              
+              {/* Glow effect on hover */}
+              <div 
+                className={`absolute inset-0 bg-gradient-to-br from-teal-400/20 via-cyan-400/20 to-blue-400/20 rounded-lg blur-xl transition-opacity duration-500 ${
+                  hoveredIndex === index ? "opacity-100" : "opacity-0"
+                }`}
+              />
 
-            <div className="relative z-10">
-              <div className="counter-number text-white text-5xl font-bold mb-2">
-                {item.suffix === "" && item.label.includes("Internship") 
-                  ? item.value 
-                  : item.suffix.includes("rd Year") || item.suffix.includes("st") || item.suffix.includes("nd") || item.suffix.includes("th")
-                  ? `${item.value}${item.suffix}`
-                  : `0 ${item.suffix}`}
+              <div className="relative z-10">
+                <div className="counter-number text-white text-3xl md:text-5xl font-bold mb-1 md:mb-2">
+                  {item.suffix === "" && item.label.includes("Internship") 
+                    ? item.value 
+                    : item.suffix.includes("rd Year") || item.suffix.includes("st") || item.suffix.includes("nd") || item.suffix.includes("th")
+                    ? `${item.value}${item.suffix}`
+                    : `0 ${item.suffix}`}
+                </div>
+                <div className="text-white-50 text-sm md:text-lg leading-tight">{item.label}</div>
               </div>
-              <div className="text-white-50 text-lg leading-tight">{item.label}</div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+
+
     </div>
   );
 };
