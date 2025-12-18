@@ -156,7 +156,8 @@ const SkillsSection = () => {
           Technologies I work with to build amazing digital experiences
         </p>
 
-        <div className="tech-grid">
+        {/* Desktop: Original grid layout */}
+        <div className="hidden md:block tech-grid">
           {skillsData.map((skill, index) => (
             <div
               key={index}
@@ -197,7 +198,65 @@ const SkillsSection = () => {
             </div>
           ))}
         </div>
+
+        {/* Mobile: Horizontal scroll */}
+        <div className="md:hidden overflow-x-auto scrollbar-hide smooth-scroll">
+          <div className="flex gap-3 pb-4">
+            {skillsData.map((skill, index) => (
+              <div
+                key={`mobile-${index}`}
+                className="relative p-4 group cursor-pointer overflow-hidden skill-rounded min-w-[130px] flex-shrink-0"
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={() => handleMouseLeave(index)}
+              >
+                {/* Glass morphism background */}
+                <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/10 skill-rounded" />
+                
+                {/* Animated gradient border */}
+                <div 
+                  className={`absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 skill-rounded opacity-0 transition-opacity duration-500 ${
+                    hoveredIndex === index ? "opacity-20" : ""
+                  }`}
+                />
+                
+                {/* Glow effect on hover */}
+                <div 
+                  className={`absolute inset-0 bg-gradient-to-br from-blue-400/30 via-purple-400/30 to-cyan-400/30 skill-rounded blur-xl transition-opacity duration-500 ${
+                    hoveredIndex === index ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+                
+                <div className="relative z-10 flex flex-col items-center justify-center text-center min-h-[120px]">
+                  <img
+                    src={skill.icon}
+                    alt={skill.name}
+                    className="w-12 h-12 object-contain mb-2 transition-all duration-300 drop-shadow-2xl"
+                  />
+                  <p className="text-sm font-semibold mb-1 transition-all duration-300">
+                    {skill.name}
+                  </p>
+                  <p className="text-white-50 text-xs">{skill.level}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+
+      {/* Scrollbar hide styles */}
+      <style jsx>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .smooth-scroll {
+          scroll-behavior: smooth;
+          -webkit-overflow-scrolling: touch;
+        }
+      `}</style>
     </section>
   );
 };
