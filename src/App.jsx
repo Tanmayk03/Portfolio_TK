@@ -1,3 +1,7 @@
+import { useEffect } from "react"
+import Lenis from "lenis"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import NavBar from "./component/Navbar.jsx"
 import Hero from "./sections/Hero.jsx"
 import ShowcaseSection from "./sections/ShowcaseSection.jsx"
@@ -8,10 +12,38 @@ import CertificatesSection from "./sections/CertificatesSection.jsx"
 import ContactSection from "./sections/ContactSection.jsx"
 import Footer from "./component/Footer.jsx"
 import GlobalBackground from "./component/GlobalBackground.jsx"
+import ScrollProgressBar from "./component/ScrollProgressBar.jsx"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const App = () => {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    })
+
+    lenis.on("scroll", ScrollTrigger.update)
+
+    let rafId
+    const raf = (time) => {
+      lenis.raf(time)
+      rafId = requestAnimationFrame(raf)
+    }
+    rafId = requestAnimationFrame(raf)
+
+    gsap.ticker.lagSmoothing(0)
+
+    return () => {
+      cancelAnimationFrame(rafId)
+      lenis.destroy()
+    }
+  }, [])
+
   return (
     <>
+      <ScrollProgressBar />
       {/* Global animated background for all pages */}
       <GlobalBackground />
       
