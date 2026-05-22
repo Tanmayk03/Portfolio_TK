@@ -121,7 +121,7 @@ section {
   }
 
   .hero-layout {
-    @apply relative z-10 xl:mt-20 mt-32 md:h-dvh h-[80vh] flex xl:items-center items-start justify-center;
+    @apply relative z-10 xl:mt-20 mt-24 xl:h-dvh h-auto flex xl:items-center items-start justify-center w-full;
   }
 
   .hero-text {
@@ -130,7 +130,7 @@ section {
       @apply size-8 md:size-10 object-contain;
     }
     .slide {
-      @apply relative inline-flex items-center overflow-hidden h-[48px] md:h-[78px] align-middle pt-0 px-2 md:px-4 md:translate-y-1 translate-y-0 pointer-events-auto;
+      @apply relative inline-flex items-center overflow-hidden h-[40px] md:h-[72px] align-middle pt-0 px-2 md:px-4 md:translate-y-1 translate-y-0 pointer-events-auto;
     }
   }
 

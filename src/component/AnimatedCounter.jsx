@@ -108,13 +108,12 @@ const AnimatedCounter = () => {
       </div>
 
       <div className="padding-x-lg relative z-10">
-        {/* Desktop: Grid layout */}
-        <div className="hidden md:grid grid-4-cols">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-7">
           {counterItems.map((item, index) => (
             <div
               key={index}
               ref={(el) => el && (countersRef.current[index] = el)}
-              className="relative rounded-2xl p-8 flex flex-col justify-between overflow-hidden group cursor-pointer border border-white/5 hover:border-violet-500/20 bg-[#0e0e10]/40 backdrop-blur-md shadow-sm hover:shadow-xl hover:shadow-violet-900/5 transition-all duration-500 h-full min-h-[170px]"
+              className="relative rounded-2xl p-5 md:p-8 flex flex-col justify-between overflow-hidden group cursor-pointer border border-white/5 hover:border-violet-500/20 bg-[#0e0e10]/40 backdrop-blur-md shadow-sm hover:shadow-xl hover:shadow-violet-900/5 transition-all duration-500 h-full min-h-[130px] md:min-h-[170px]"
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
             >
@@ -133,73 +132,19 @@ const AnimatedCounter = () => {
               />
 
               <div className="relative z-10 flex flex-col justify-between h-full">
-                <div className="counter-number text-slate-100 text-5xl font-bold mb-4 whitespace-nowrap">
+                <div className="counter-number text-slate-100 text-3xl md:text-5xl font-bold mb-2 md:mb-4 whitespace-nowrap">
                   {item.suffix === "" && item.label.includes("Internship") 
                     ? item.value 
                     : item.suffix.includes("rd Year") || item.suffix.includes("st") || item.suffix.includes("nd") || item.suffix.includes("th")
                     ? `${item.value}${item.suffix}`
                     : `0 ${item.suffix}`}
                 </div>
-                <div className="text-slate-400 text-base leading-snug font-medium">{item.label}</div>
+                <div className="text-slate-400 text-xs md:text-base leading-snug font-medium">{item.label}</div>
               </div>
             </div>
           ))}
         </div>
-
-        {/* Mobile: Horizontal scroll */}
-        <div className="md:hidden overflow-x-auto scrollbar-hide smooth-scroll">
-          <div className="flex gap-4 pb-4">
-            {counterItems.map((item, index) => (
-              <div
-                key={`mobile-${index}`}
-                className="relative rounded-2xl p-6 flex flex-col justify-between overflow-hidden group cursor-pointer min-w-[160px] min-h-[140px] flex-shrink-0 border border-white/5 bg-[#0e0e10]/40 backdrop-blur-md shadow-sm"
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={() => handleMouseLeave(index)}
-              >
-                {/* Animated gradient on hover */}
-                <div 
-                  className={`absolute inset-0 bg-gradient-to-br from-purple-500/10 via-indigo-500/10 to-blue-500/10 rounded-2xl opacity-0 transition-opacity duration-500 ${
-                    hoveredIndex === index ? "opacity-100" : ""
-                  }`}
-                />
-                
-                {/* Glow effect on hover */}
-                <div 
-                  className={`absolute inset-0 bg-gradient-to-br from-purple-400/10 via-indigo-400/10 to-blue-400/10 rounded-2xl blur-xl transition-opacity duration-500 ${
-                    hoveredIndex === index ? "opacity-100" : "opacity-0"
-                  }`}
-                />
-
-                <div className="relative z-10 flex flex-col justify-between h-full">
-                  <div className="counter-number text-slate-100 text-3xl font-bold mb-3 whitespace-nowrap">
-                    {item.suffix === "" && item.label.includes("Internship") 
-                      ? item.value 
-                      : item.suffix.includes("rd Year") || item.suffix.includes("st") || item.suffix.includes("nd") || item.suffix.includes("th")
-                      ? `${item.value}${item.suffix}`
-                      : `0 ${item.suffix}`}
-                  </div>
-                  <div className="text-slate-400 text-sm leading-snug font-medium">{item.label}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
-
-      {/* Scrollbar hide styles */}
-      <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .smooth-scroll {
-          scroll-behavior: smooth;
-          -webkit-overflow-scrolling: touch;
-        }
-      `}</style>
     </div>
   );
 };

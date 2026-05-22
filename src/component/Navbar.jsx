@@ -31,8 +31,8 @@ const NavBar = () => {
         <div className="logo-wrapper">
           <a href="#hero" className="logo-text text-slate-100 flex items-center" onClick={closeMobileMenu}>
             <span className="logo-name">Tanmay Kapoor</span>
-            <span className="logo-divider"></span>
-            <span className="logo-badge">Developer</span>
+            <span className="logo-divider hidden sm:inline-block"></span>
+            <span className="logo-badge hidden sm:inline-flex">Developer</span>
           </a>
           <div className="logo-glow" />
         </div>

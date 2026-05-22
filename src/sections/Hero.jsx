@@ -24,7 +24,7 @@ const Hero = () => {
     <section id="hero" className="relative overflow-hidden pt-20">
       <div className="hero-layout">
         {/* Left Section */}
-        <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
+        <header className="flex flex-col justify-center w-full md:px-20 px-5">
           {/* Status Badge */}
           <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 backdrop-blur-md text-xs md:text-sm text-violet-300 font-semibold mb-6 w-fit hover:border-violet-500/40 transition-colors duration-300 pointer-events-auto">
             <span className="flex h-2 w-2 relative">
@@ -42,7 +42,7 @@ const Hero = () => {
                   {words.map((word, index) => (
                     <span
                       key={`${word.text}-${index}`}
-                      className="flex items-center gap-2 md:gap-3 h-[48px] md:h-[78px]"
+                      className="flex items-center gap-2 md:gap-3 h-[40px] md:h-[72px]"
                     >
                       <img
                         src={word.imgPath}
@@ -88,7 +88,7 @@ const Hero = () => {
         </header>
 
         {/* Right Section */}
-        <figure>
+        <figure className="hidden xl:block">
           <div className="hero-3d-layout">
             <HeroExperience />
           </div>
