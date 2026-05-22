@@ -91,8 +91,11 @@ const NavBar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full relative shadow-lg">
+      <div
+        className={`lg:hidden absolute top-full left-0 w-full overflow-hidden transition-all duration-300 ease-in-out ${
+          mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
           {/* Glass morphism background for mobile menu */}
           <div className="absolute inset-0 bg-[#030014]/95 backdrop-blur-md border-b border-white/10" />
           
@@ -122,7 +125,6 @@ const NavBar = () => {
             </a>
           </nav>
         </div>
-      )}
     </header>
   );
 };

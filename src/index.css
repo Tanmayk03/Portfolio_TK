@@ -40,6 +40,23 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: var(--font-heading);
 }
 
+/* Smooth scroll anchor offset so fixed navbar doesn't obscure section headings */
+[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Global Animated Background - Simple & Minimal */
+.global-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
 @layer utilities {
   .animate-pulse-slow {
     animation: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
