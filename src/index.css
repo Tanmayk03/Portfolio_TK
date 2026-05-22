@@ -1,110 +1,48 @@
-@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
-:root {
-  --gradient: radial-gradient(circle, #e5e5e5 0%, #fff 100%);
-  --font-sans: "Mona Sans", sans-serif;
-  --color-white-50: #d9ecff;
-  --color-black-50: #1c1c21;
-  --color-black-100: #0e0e10;
-  --color-black-200: #282732;
-  --color-blue-50: #839cb5;
-  --color-blue-100: #2d2d38;
+@theme {
+  --font-heading: "Outfit", sans-serif;
+  --font-body: "Inter", sans-serif;
+  
+  /* Premium Dark Palette (Deep Space Theme) */
+  --color-bg-primary: #030014;
+  --color-bg-secondary: rgba(255, 255, 255, 0.02);
+  
+  /* Soft Glowing Accent Colors */
+  --color-neon-blue: #3b82f6;
+  --color-neon-purple: #8b5cf6;
+  --color-neon-cyan: #06b6d4;
+  
+  /* Dark Mode Text and Surfaces */
+  --color-white-100: #f8fafc; /* High contrast text (slate-50) */
+  --color-white-50: #94a3b8;  /* Medium contrast text (slate-400) */
+  --color-black-50: rgba(255, 255, 255, 0.06); /* Subtle borders */
+  --color-black-100: rgba(15, 23, 42, 0.6);   /* Glass card fill */
+  --color-black-200: rgba(255, 255, 255, 0.08); /* Hover highlight borders */
+  
+  --color-blue-50: #64748b;
+  --color-blue-100: rgba(30, 41, 59, 0.5); /* Form input background */
 }
 
 html,
 body {
   width: 100dvw;
   overflow-x: hidden;
-  background-color: #000000;
-  color: white;
+  background-color: var(--color-bg-primary);
+  color: var(--color-white-100);
   scroll-behavior: smooth;
-  font-family: "Mona Sans", sans-serif;
+  font-family: var(--font-body);
   position: relative;
 }
 
-/* Global Animated Background - Simple & Minimal */
-.global-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading);
 }
 
-/* Animated Gradient Orbs */
-.bg-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.3;
-  animation: float 20s ease-in-out infinite;
-}
-
-.bg-orb-1 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, #3b82f6, #1e40af);
-  top: 10%;
-  left: 10%;
-  animation-delay: 0s;
-}
-
-.bg-orb-2 {
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, #8b5cf6, #5b21b6);
-  top: 60%;
-  right: 15%;
-  animation-delay: -7s;
-}
-
-.bg-orb-3 {
-  width: 350px;
-  height: 350px;
-  background: radial-gradient(circle, #06b6d4, #0891b2);
-  bottom: 20%;
-  left: 50%;
-  animation-delay: -14s;
-}
-
-/* Floating animation */
-@keyframes float {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(30px, -30px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-}
-
-/* Subtle grid pattern */
-.bg-grid {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: gridMove 20s linear infinite;
-  opacity: 0.5;
-}
-
-@keyframes gridMove {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(50px, 50px);
+@layer utilities {
+  .animate-pulse-slow {
+    animation: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 }
 
@@ -175,13 +113,13 @@ section {
       @apply size-8 md:size-10 object-contain;
     }
     .slide {
-      @apply absolute pt-0 px-2 md:px-5 py-[30px] h-[48px] md:h-[78px] md:translate-y-1 translate-y-0 overflow-hidden;
+      @apply relative inline-flex items-center overflow-hidden h-[48px] md:h-[78px] align-middle pt-0 px-2 md:px-4 md:translate-y-1 translate-y-0 pointer-events-auto;
     }
   }
 
   .hero-badge {
     background-color: var(--color-black-200);
-    @apply py-2 px-4 rounded-full w-fit text-sm md:text-base text-nowrap;
+    @apply py-2 px-4 rounded-full w-fit text-sm md:text-base text-nowrap border border-white/5;
   }
 
   .hero-3d-layout {
@@ -193,10 +131,10 @@ section {
 
     &.scrolled {
       @apply top-0;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(3, 0, 20, 0.7);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     }
 
@@ -214,7 +152,7 @@ section {
     }
 
     .logo-text {
-      @apply relative z-10 flex items-center gap-3 md:gap-4 text-3xl md:text-4xl;
+      @apply relative z-10 flex items-center text-lg sm:text-2xl md:text-3xl;
       display: inline-flex;
       align-items: center;
       font-weight: 600;
@@ -222,7 +160,7 @@ section {
 
     .logo-name {
       @apply relative;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
       background-size: 300% 300%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -232,27 +170,21 @@ section {
       font-weight: 600;
     }
 
-    .logo-separator {
-      color: var(--color-white-50);
-      opacity: 0.6;
-      font-weight: 300;
-      @apply mx-2 md:mx-3;
+    .logo-divider {
+      @apply w-px h-4 bg-white/20 mx-2 sm:mx-3 self-center inline-block;
     }
 
-    .logo-title-text {
-      @apply relative;
-      background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #f093fb 100%);
-      background-size: 200% 200%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: gradient-shift 3s ease infinite reverse;
-      font-weight: 600;
+    .logo-badge {
+      @apply inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] sm:text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 backdrop-blur-sm transition-all duration-300 tracking-wider uppercase;
+    }
+
+    .logo-wrapper:hover .logo-badge {
+      @apply bg-indigo-500/20 text-indigo-300 border-indigo-500/30 shadow-[0_0_15px_rgba(99,102,241,0.2)];
     }
 
     .logo-glow {
       @apply absolute inset-0 -z-10;
-      background: radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
       opacity: 0;
       transition: opacity 0.3s ease;
       filter: blur(20px);
@@ -270,7 +202,7 @@ section {
 
     .particle {
       @apply absolute w-1 h-1 rounded-full;
-      background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
       opacity: 0;
       animation: particle-float 3s ease-in-out infinite;
       animation-delay: var(--delay);
@@ -340,119 +272,77 @@ section {
           }
 
           .underline {
-            @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full;
+            @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 group-hover:w-full;
           }
         }
       }
     }
 
-    .contact-btn {
-      @apply flex;
 
-      .inner {
-        @apply px-5 py-2 rounded-lg bg-white text-black transition-colors duration-300;
-        
-        &:hover {
-          background-color: var(--color-black-50);
-        }
-
-        span {
-          @apply group-hover:text-white transition-colors duration-300;
-        }
-      }
-    }
   }
 
   .app-showcase {
     @apply w-full mt-20 px-5 md:px-20 py-10 md:py-20 flex items-center justify-center;
 
     .showcaselayout {
-      @apply flex xl:flex-row flex-col gap-10 justify-between;
+      @apply flex flex-col gap-8 w-full;
     }
 
     .first-project-wrapper {
-      @apply h-full flex flex-col justify-between xl:w-[60%];
+      @apply w-full flex flex-col lg:flex-row gap-8 items-center bg-[#0e0e10]/60 backdrop-blur-md border border-white/5 rounded-2xl p-6 md:p-8 hover:border-violet-500/30 transition-all duration-500;
 
       .image-wrapper {
-        @apply xl:h-[70vh] md:h-[50vh] h-96 relative;
+        @apply w-full lg:w-[50%] h-64 md:h-[400px] relative overflow-hidden rounded-xl;
 
         img {
-          @apply w-full h-full object-cover rounded-xl absolute inset-0;
+          @apply w-full h-full object-cover rounded-xl transition-transform duration-700 hover:scale-105;
         }
       }
 
       .text-content {
-        @apply space-y-5 mt-5;
-
-        .badges {
-          @apply flex gap-2 mb-4;
-        }
+        @apply w-full lg:w-[50%] flex flex-col justify-center;
 
         h2 {
-          @apply text-2xl md:text-3xl lg:text-4xl font-bold;
+          @apply text-2xl md:text-3xl lg:text-4xl font-bold text-slate-100 font-heading mb-4;
+        }
+        
+        p {
+          @apply text-slate-400 text-sm md:text-base leading-relaxed font-body mb-6;
         }
       }
     }
 
-    .project-list-wrapper {
-      @apply flex md:flex-row flex-col xl:flex-col gap-10 xl:w-[40%];
+    .projects-grid {
+      @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full;
+    }
+
+    .project-card {
+      @apply flex flex-col bg-[#0e0e10]/40 backdrop-blur-md border border-white/5 rounded-2xl p-6 hover:border-violet-500/20 hover:shadow-lg hover:shadow-violet-900/5 transition-all duration-500;
 
       .image-wrapper {
-        @apply xl:h-[37vh] md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0;
-      }
+        @apply w-full h-48 relative overflow-hidden rounded-xl bg-slate-900/50 mb-5;
 
-      img {
-        @apply w-full h-full object-contain rounded-xl;
+        img {
+          @apply w-full h-full object-cover rounded-xl transition-transform duration-700 hover:scale-105;
+        }
       }
 
       h2 {
-        @apply text-lg md:text-xl lg:text-2xl font-semibold mt-5;
+        @apply text-xl md:text-2xl font-semibold text-slate-200 font-heading mt-2 mb-3;
+      }
+
+      p {
+        @apply text-slate-400 text-sm leading-relaxed font-body mb-5 flex-grow;
       }
     }
   }
 
-  .cta-wrapper {
-    @apply relative z-20 cursor-pointer;
-  }
 
-  .cta-button {
-    background-color: var(--color-black-200);
-    @apply px-4 py-4 rounded-lg flex justify-center items-center relative cursor-pointer overflow-hidden;
-
-    .bg-circle {
-      background-color: var(--color-white-50);
-      @apply absolute -right-10 origin-center top-1/2 -translate-y-1/2 
-        w-[120%] h-[120%] group-hover:size-10 group-hover:right-10
-        rounded-full transition-all duration-500;
-    }
-
-    .text {
-      @apply uppercase md:text-lg text-black transition-all duration-500
-        group-hover:-translate-x-5 xl:translate-x-0 -translate-x-5;
-      
-      &:hover {
-        color: var(--color-white-50);
-      }
-    }
-
-    .arrow-wrapper {
-      @apply size-10 rounded-full absolute right-10 top-1/2 
-        -translate-y-1/2 flex justify-center items-center overflow-hidden;
-      
-      &:hover {
-        background-color: var(--color-white-50);
-      }
-
-      img {
-        @apply size-5 xl:-translate-y-32 translate-y-0 animate-bounce group-hover:translate-y-0 transition-all duration-500;
-      }
-    }
-  }
 
   .card-border {
     border-color: var(--color-black-50);
     background-color: var(--color-black-100);
-    @apply border;
+    @apply border backdrop-blur-md;
   }
 
   .marquee-item {
@@ -518,13 +408,13 @@ section {
   form {
     label {
       color: var(--color-white-50);
-      @apply block mb-2;
+      @apply block mb-2 text-sm font-medium;
     }
 
     input,
     textarea {
       background-color: var(--color-blue-100);
-      @apply w-full px-4 py-4 md:text-base text-sm rounded-md;
+      @apply w-full px-4 py-4 md:text-base text-sm rounded-md border border-white/5 outline-none text-white focus:border-violet-500/50 transition-colors;
       
       &::placeholder {
         color: var(--color-blue-50);
@@ -562,11 +452,12 @@ section {
         
         &:hover {
           background-color: var(--color-black-50);
+          border-color: var(--color-neon-purple);
         }
       }
 
       img {
-        @apply inline-block;
+        @apply inline-block object-contain;
       }
     }
   }

@@ -7,8 +7,8 @@ export const words = [
   { text: "Concepts", imgPath: "/images/concepts.svg" },
   { text: "Designs", imgPath: "/images/designs.svg" },
   { text: "Code", imgPath: "/images/code.svg" },
-
 ];
+
 export const counterItems = [
   { 
     value: 1, 
@@ -23,7 +23,7 @@ export const counterItems = [
     prefix: ""
   },
   { 
-    value: 15, 
+    value: 30, 
     suffix: "+", 
     label: "Repositories",
     prefix: ""
@@ -35,6 +35,7 @@ export const counterItems = [
     prefix: ""
   },
 ];
+
 export const navLinks = [
   {
     name: "Projects",
@@ -53,6 +54,7 @@ export const navLinks = [
     link: "#certificates",
   },
 ];
+
 export const logoIconsList = [
   {
     imgPath: "/images/logos/company-logo-1.png",
@@ -123,78 +125,213 @@ export const experienceData = [
 ];
 
 export const skillsData = [
-  {
-    name: "JavaScript",
-    icon: "/images/logos/javascript.png",
-    level: "Intermediate",
-  },
+  // Languages
   {
     name: "Java",
-    icon: "/images/logos/java.png",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
     level: "Intermediate",
+    category: "Languages"
   },
   {
     name: "C++",
-    icon: "/images/logos/cpp.png",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
     level: "Intermediate",
+    category: "Languages"
   },
+  {
+    name: "Python",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    level: "Intermediate",
+    category: "Languages"
+  },
+  {
+    name: "JavaScript",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    level: "Intermediate",
+    category: "Languages"
+  },
+  // Frontend
   {
     name: "React.js",
-    icon: "/images/logos/react.png",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
     level: "Intermediate",
-  },
-  {
-    name: "Node.js",
-    icon: "/images/logos/node.png",
-    level: "Beginner",
-  },
-  {
-    name: "MongoDB",
-    icon: "/images/logos/mongodb.png",
-    level: "Intermediate",
+    category: "Frontend"
   },
   {
     name: "Redux",
-    icon: "/images/logos/redux.png",
-    level: "Beginner–Intermediate",
-  },
-  {
-    name: "Tailwind CSS",
-    icon: "/images/logos/tailwind.png",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
     level: "Intermediate",
-  },
-  {
-    name: "HTML/CSS",
-    icon: "/images/logos/html-css.png",
-    level: "Intermediate",
+    category: "Frontend"
   },
   {
     name: "Vite",
     icon: "/images/logos/vite.png",
-    level: "Beginner–Intermediate",
+    level: "Intermediate",
+    category: "Frontend"
   },
   {
-    name: "Git & GitHub",
-    icon: "/images/logos/git.svg",
+    name: "Tailwind CSS",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-without-wordmark.svg",
     level: "Intermediate",
+    category: "Frontend"
+  },
+  {
+    name: "Bootstrap",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+    level: "Intermediate",
+    category: "Frontend"
+  },
+  // Backend
+  {
+    name: "Node.js",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+    level: "Beginner–Intermediate",
+    category: "Backend"
+  },
+  {
+    name: "Express.js",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+    level: "Intermediate",
+    category: "Backend"
+  },
+  {
+    name: "REST APIs",
+    icon: "/images/code.svg",
+    level: "Intermediate",
+    category: "Backend"
+  },
+  // Databases
+  {
+    name: "MongoDB",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+    level: "Intermediate",
+    category: "Databases"
+  },
+  {
+    name: "MySQL",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+    level: "Intermediate",
+    category: "Databases"
+  },
+  {
+    name: "Firebase",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg",
+    level: "Intermediate",
+    category: "Databases"
+  },
+  {
+    name: "Supabase",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+    level: "Intermediate",
+    category: "Databases"
+  },
+  // Tools
+  {
+    name: "Git",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    level: "Intermediate",
+    category: "Tools"
+  },
+  {
+    name: "GitHub",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    level: "Intermediate",
+    category: "Tools"
+  },
+  {
+    name: "VS Code",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
+    level: "Intermediate",
+    category: "Tools"
+  },
+  {
+    name: "Postman",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg",
+    level: "Intermediate",
+    category: "Tools"
+  },
+  {
+    name: "Android Studio",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg",
+    level: "Intermediate",
+    category: "Tools"
   },
 ];
 
+export const projectsData = [
+  {
+    title: "GateBuddy – Campus Peer-to-Peer Delivery Platform",
+    description: "Conceptualized and launched a campus logistics platform enabling hostel residents to post, discover, and fulfill item transfer requests instantly, cutting coordination overhead significantly.",
+    details: [
+      "Architected backend services encompassing order lifecycle management, session-based authentication, and geo-aware filtering with Node.js and Express.js.",
+      "Crafted a responsive frontend with optimized state management and seamless API integration, paired with a scalable data layer and engagement analytics to monitor adoption post-deployment."
+    ],
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Vercel"],
+    liveLink: "https://tanmayk.tech", // Placeholder/Resume Link
+    githubLink: "https://github.com/Tanmayk03",
+    image: "/images/gatebuddy.png",
+    featured: true
+  },
+  {
+    title: "Scan & Pay – Intelligent QR-Based Payment System",
+    description: "Constructed a QR-driven payment solution supporting contactless digital transactions, real-time validation, and an embedded fraud detection layer for secure fund transfers.",
+    details: [
+      "Exposed RESTful APIs for transaction orchestration, identity verification, and payment workflow automation leveraging Node.js and Express.js.",
+      "Delivered an end-to-end application with React.js and MongoDB, achieving fluid UI interactions and structured data persistence across all payment flows."
+    ],
+    technologies: ["React", "Node.js", "Express", "MongoDB"],
+    liveLink: "https://tanmayk.tech",
+    githubLink: "https://github.com/Tanmayk03",
+    image: "/images/scan_pay.png",
+    featured: false
+  },
+  {
+    title: "Hyperlocal Delivery Application",
+    description: "Developed a full-stack commerce platform covering product catalog browsing, cart management, checkout pipelines, and end-to-end order tracking.",
+    details: [
+      "Implemented RESTful backend services via Node.js and Express.js for credential-based access control, inventory queries, and high-throughput order processing.",
+      "Shipped a performant UI with React.js, Redux, and Tailwind CSS, enriched with AI-powered product recommendations and live shipment status updates."
+    ],
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Redux", "Tailwind CSS", "Vite"],
+    liveLink: "https://tanmayk.tech",
+    githubLink: "https://github.com/Tanmayk03",
+    image: "/images/hyperlocal.png",
+    featured: false
+  },
+  {
+    title: "KanBan.AI – Intelligent Task Automation System",
+    description: "Engineered an AI-powered Kanban board harnessing LLMs for autonomous task classification, priority assignment, and workflow execution with minimal user input.",
+    details: [
+      "Wired server-side logic in Node.js with AI APIs to drive context-aware task routing, dynamic status transitions, and intelligent automation pipelines.",
+      "Designed an intuitive React.js interface with drag-and-drop board management, real-time progress visualization, and frictionless AI-assisted task creation."
+    ],
+    technologies: ["JavaScript", "React", "Node.js", "AI APIs"],
+    liveLink: "https://tanmayk.tech",
+    githubLink: "https://github.com/Tanmayk03",
+    image: "/images/kanban_ai.png",
+    featured: false
+  }
+];
 
 export const socialLinks = [
   {
     name: "LinkedIn",
     url: "https://linkedin.com/in/tanmay--kapoor",
-    icon: "/images/linkedin.png",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg",
   },
   {
     name: "GitHub",
     url: "https://github.com/Tanmayk03",
-    icon: "/images/logos/git.svg",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+  },
+  {
+    name: "LeetCode",
+    url: "https://leetcode.com",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/codepen-plain.svg", // Fallback devicon or general coder icon
   },
   {
     name: "Email",
     url: "mailto:tanmaykapoor003@gmail.com",
-    icon: "/images/insta.png",
+    icon: "/images/chat.png", // Corrected icon for messaging/email
   },
 ];

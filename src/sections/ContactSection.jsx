@@ -61,84 +61,86 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" ref={sectionRef} className="section-padding">
-      <div className="padding-x-lg">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-            Get In Touch
-          </h2>
-          <p className="text-white-50 text-xl mb-8 text-center">
-            Have a project in mind? Let's work together to bring your ideas to life.
-          </p>
-          
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-12">
-            <a 
-              href="mailto:tanmaykapoor003@gmail.com" 
-              className="text-white-50 hover:text-white transition-colors flex items-center gap-2"
-            >
-              <span className="text-lg">📧</span>
-              <span>tanmaykapoor003@gmail.com</span>
-            </a>
-            <a 
-              href="tel:7905170353" 
-              className="text-white-50 hover:text-white transition-colors flex items-center gap-2"
-            >
-              <span className="text-lg">📱</span>
-              <span>+91 7905170353</span>
-            </a>
-          </div>
-
-          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your name"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="your.email@example.com"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Tell me about your project..."
-                rows="6"
-                required
-              />
-            </div>
-            <a
-              href="#"
-              onClick={handleSubmit}
-              className="block text-center"
-            >
-              Send Message
-              <img
-                src="/images/arrow-right.svg"
-                alt="arrow"
-                className="inline-block ml-2"
-              />
-            </a>
-          </form>
+    <section id="contact" ref={sectionRef} className="section-padding relative">
+      <div className="padding-x-lg relative z-10 max-w-4xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent font-heading">
+          Get In Touch
+        </h2>
+        <p className="text-slate-400 text-lg md:text-xl mb-8 text-center font-body">
+          Have a project in mind? Let's work together to bring your ideas to life.
+        </p>
+        
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-12">
+          <a 
+            href="mailto:tanmaykapoor003@gmail.com" 
+            className="text-slate-300 hover:text-indigo-400 transition-all duration-300 flex items-center gap-2.5 font-medium bg-white/5 border border-white/10 hover:border-indigo-500/30 rounded-full px-6 py-2.5 backdrop-blur-sm"
+          >
+            <span className="text-lg">📧</span>
+            <span>tanmaykapoor003@gmail.com</span>
+          </a>
+          <a 
+            href="tel:7905170353" 
+            className="text-slate-300 hover:text-indigo-400 transition-all duration-300 flex items-center gap-2.5 font-medium bg-white/5 border border-white/10 hover:border-indigo-500/30 rounded-full px-6 py-2.5 backdrop-blur-sm"
+          >
+            <span className="text-lg">📱</span>
+            <span>+91 7905170353</span>
+          </a>
         </div>
+
+        <form 
+          ref={formRef} 
+          onSubmit={handleSubmit} 
+          className="space-y-6 bg-[#0e0e10]/40 backdrop-blur-md p-8 md:p-10 rounded-2xl border border-white/5 hover:border-violet-500/20 shadow-xl hover:shadow-2xl transition-all duration-500"
+        >
+          <div>
+            <label htmlFor="name" className="text-slate-300 font-medium text-sm">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Your name"
+              required
+              className="w-full bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/50 rounded-lg p-3.5 outline-none transition-all mt-1.5"
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="text-slate-300 font-medium text-sm">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="your.email@example.com"
+              required
+              className="w-full bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/50 rounded-lg p-3.5 outline-none transition-all mt-1.5"
+            />
+          </div>
+          <div>
+            <label htmlFor="message" className="text-slate-300 font-medium text-sm">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Tell me about your project..."
+              rows="6"
+              required
+              className="w-full bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/50 rounded-lg p-3.5 outline-none transition-all mt-1.5 resize-none"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full py-4 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 hover:from-blue-600 hover:via-indigo-600 hover:to-purple-700 text-white font-semibold rounded-lg flex justify-center items-center gap-2 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30 transition-all duration-300 cursor-pointer group"
+          >
+            <span>Send Message</span>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+            </svg>
+          </button>
+        </form>
       </div>
     </section>
   );

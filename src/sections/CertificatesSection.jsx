@@ -169,19 +169,12 @@ const CertificatesSection = () => {
 
   return (
     <section id="certificates" ref={sectionRef} className="section-padding relative">
-      {/* Cool animated background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-32 left-16 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-32 right-16 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-cyan-500/10 rounded-full blur-3xl" />
-      </div>
-
-      <div className="padding-x-lg relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+      <div className="padding-x-lg relative z-10 max-w-6xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent font-heading">
           Certificates & Achievements
         </h2>
-        <p className="text-white-50 text-xl mb-12">
-          Professional certifications and notable achievements
+        <p className="text-slate-400 text-lg md:text-xl mb-12 font-body">
+          Professional certifications and notable achievements.
         </p>
 
         <div className="grid-3-cols">
@@ -189,50 +182,40 @@ const CertificatesSection = () => {
             <div
               key={index}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="relative rounded-xl overflow-hidden group cursor-pointer"
+              className="relative rounded-2xl overflow-hidden group cursor-pointer bg-[#0e0e10]/40 backdrop-blur-md border border-white/5 shadow-sm hover:border-violet-500/20 hover:shadow-lg hover:shadow-violet-900/5 transition-all duration-300"
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
             >
-              {/* Glass morphism background */}
-              <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl" />
-              
               {/* Animated gradient on hover */}
               <div 
-                className={`absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-cyan-500/20 rounded-xl opacity-0 transition-opacity duration-500 ${
+                className={`absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 opacity-0 transition-opacity duration-500 ${
                   hoveredIndex === index ? "opacity-100" : ""
-                }`}
-              />
-              
-              {/* Glow effect on hover */}
-              <div 
-                className={`absolute inset-0 bg-gradient-to-br from-blue-400/30 via-purple-400/30 to-cyan-400/30 rounded-xl blur-xl transition-opacity duration-500 ${
-                  hoveredIndex === index ? "opacity-100" : "opacity-0"
                 }`}
               />
 
               <div className="relative z-10 p-6 md:p-8 flex flex-col h-full">
                 <div className="mb-4 flex-grow">
-                  <h3 className="text-lg md:text-xl font-bold mb-3 leading-tight">
+                  <h3 className="text-lg md:text-xl font-bold mb-3 leading-tight text-slate-100 font-heading">
                     {cert.title}
                   </h3>
                   
                   <div className="space-y-2 mb-3">
                     <div className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></span>
-                      <p className="text-white-50 text-sm font-semibold">
+                      <span className="w-1.5 h-1.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"></span>
+                      <p className="text-slate-300 text-sm font-semibold">
                         {cert.issuer}
                       </p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-gradient-to-r from-purple-400 to-cyan-400 rounded-full"></span>
-                      <p className="text-white-50 text-xs">{cert.date}</p>
+                      <span className="w-1.5 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></span>
+                      <p className="text-slate-400 text-xs">{cert.date}</p>
                     </div>
-                    <div className="inline-block bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1">
-                      <p className="text-white-50 text-xs">Duration: {cert.duration}</p>
+                    <div className="inline-block bg-white/5 border border-white/10 rounded-full px-3 py-1 mt-1">
+                      <p className="text-slate-300 text-xs font-medium">Duration: {cert.duration}</p>
                     </div>
                   </div>
                   
-                  <p className="text-white-50 text-sm leading-relaxed">{cert.description}</p>
+                  <p className="text-slate-400 text-sm leading-relaxed">{cert.description}</p>
                 </div>
 
                 {/* View Certificate Button */}
@@ -240,12 +223,12 @@ const CertificatesSection = () => {
                   href={cert.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 hover:from-blue-500/30 hover:to-purple-500/30 border border-blue-400/30 rounded-lg text-sm font-medium text-white transition-all duration-300 group/btn pointer-events-auto"
+                  className="mt-4 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-indigo-500/30 rounded-lg text-sm font-medium text-slate-300 hover:text-white transition-all duration-300 group/btn pointer-events-auto"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <span>View Certificate</span>
+                  <span className="group-hover/btn:text-indigo-400 transition-colors">View Certificate</span>
                   <svg 
-                    className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" 
+                    className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:text-indigo-400 text-slate-500" 
                     fill="none" 
                     viewBox="0 0 24 24" 
                     stroke="currentColor"

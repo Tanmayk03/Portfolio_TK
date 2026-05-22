@@ -26,62 +26,75 @@ const NavBar = () => {
   };
 
   return (
-    <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"} relative`}>
-      {/* Glass morphism background */}
-      <div className="absolute inset-0 bg-white/5 backdrop-blur-md border-b border-white/10" />
-      
+    <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
       <div className="inner relative z-10">
-        <a href="#hero" className="logo" onClick={closeMobileMenu}>
-          Tanmay Kapoor | Developer
-        </a>
+        <div className="logo-wrapper">
+          <a href="#hero" className="logo-text text-slate-100 flex items-center" onClick={closeMobileMenu}>
+            <span className="logo-name">Tanmay Kapoor</span>
+            <span className="logo-divider"></span>
+            <span className="logo-badge">Developer</span>
+          </a>
+          <div className="logo-glow" />
+        </div>
 
         <nav className="desktop">
           <ul>
             {navLinks.map(({ link, name }) => (
-              <li key={name} className="group">
-                <a href={link} className="relative">
-                  <span className="transition-colors hover:text-cyan-300">{name}</span>
-                  <span className="underline bg-gradient-to-r from-cyan-400 to-blue-400" />
+              <li key={name} className="group relative">
+                <a href={link} className="relative text-slate-300 font-medium py-2 px-1 flex items-center">
+                  <span className="transition-colors hover:text-white duration-300">{name}</span>
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-indigo-500 scale-0 group-hover:scale-100 transition-transform duration-300 shadow-[0_0_10px_rgba(99,102,241,0.8)]" />
                 </a>
               </li>
             ))}
           </ul>
         </nav>
 
-        <a href="#contact" className="contact-btn group hidden lg:flex relative overflow-hidden">
-          {/* Button glass background */}
-          <div className="absolute inset-0 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg" />
+        <a href="#contact" className="group hidden lg:flex items-center gap-2 relative overflow-hidden rounded-full border border-white/10 bg-white/5 backdrop-blur-sm shadow-sm transition-all duration-300 hover:border-indigo-500/30 hover:shadow-[0_0_20px_rgba(99,102,241,0.2)] hover:text-white cursor-pointer px-6 py-2.5">
+          {/* Hover gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           
-          {/* Hover gradient effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-blue-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
-          
-          <div className="inner relative z-10">
-            <span className="transition-colors group-hover:text-cyan-300">Contact me</span>
-          </div>
+          <span className="relative z-10 text-sm font-semibold text-slate-200 group-hover:text-white transition-colors duration-300">
+            Contact me
+          </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-4 h-4 relative z-10 stroke-slate-300 group-hover:stroke-white group-hover:translate-x-0.5 transition-all duration-300"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
         </a>
 
         {/* Mobile Menu Button */}
         <button
-          className="lg:hidden flex items-center justify-center w-10 h-10 relative"
+          className="lg:hidden flex items-center justify-center w-10 h-10 relative text-slate-200"
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
         >
           {/* Button glass background */}
-          <div className="absolute inset-0 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg" />
+          <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg" />
           
           {mobileMenuOpen ? (
-            <img src="/images/x.svg" alt="Close menu" className="w-6 h-6 relative z-10" />
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 relative z-10 stroke-slate-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
           ) : (
-            <img src="/images/menu.svg" alt="Open menu" className="w-6 h-6 relative z-10" />
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 relative z-10 stroke-slate-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
           )}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full relative">
+        <div className="lg:hidden absolute top-full left-0 w-full relative shadow-lg">
           {/* Glass morphism background for mobile menu */}
-          <div className="absolute inset-0 bg-white/5 backdrop-blur-md border-b border-white/10" />
+          <div className="absolute inset-0 bg-[#030014]/95 backdrop-blur-md border-b border-white/10" />
           
           <nav className="flex flex-col p-5 relative z-10">
             {navLinks.map(({ link, name }) => (
@@ -89,7 +102,7 @@ const NavBar = () => {
                 key={name}
                 href={link}
                 onClick={closeMobileMenu}
-                className="py-3 text-white-50 hover:text-cyan-300 transition-colors border-b border-white/10 last:border-0"
+                className="py-3 text-slate-300 font-medium hover:text-violet-400 transition-colors border-b border-white/5 last:border-0"
               >
                 {name}
               </a>
@@ -100,12 +113,12 @@ const NavBar = () => {
               className="relative mt-4 py-3 px-5 rounded-lg text-center font-semibold overflow-hidden group"
             >
               {/* Glass background */}
-              <div className="absolute inset-0 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg" />
+              <div className="absolute inset-0 bg-white/5 border border-white/10 rounded-lg" />
               
               {/* Hover gradient effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/30 via-blue-400/30 to-purple-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
               
-              <span className="relative z-10 transition-colors group-hover:text-cyan-300">Contact me</span>
+              <span className="relative z-10 transition-colors text-slate-200 group-hover:text-white">Contact me</span>
             </a>
           </nav>
         </div>

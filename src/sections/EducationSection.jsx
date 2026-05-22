@@ -15,14 +15,14 @@ const EducationSection = () => {
       institution: "SRM University - Delhi NCR Campus",
       degree: "B.Tech in Computer Science (Data Science)",
       period: "August 2023 - May 2027",
-      gpa: "8.34 GPA",
+      gpa: "8.46 CGPA",
       status: "Pursuing",
     },
     {
       institution: "SKD Academy",
-      degree: "High School Diploma",
-      period: "2008 - 2023",
-      gpa: null,
+      degree: "Senior Secondary (ICSE)",
+      period: "2021 - 2023",
+      gpa: "79.5%",
       status: "Completed",
     },
   ];
@@ -111,19 +111,12 @@ const EducationSection = () => {
 
   return (
     <section id="education" ref={sectionRef} className="section-padding relative">
-      {/* Cool animated background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-32 right-20 w-80 h-80 bg-indigo-500/15 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-32 left-20 w-96 h-96 bg--500/15 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-3xl" />
-      </div>
-
-      <div className="padding-x-lg relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-400 bg-clip-text text-transparent">
+      <div className="padding-x-lg relative z-10 max-w-4xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent font-heading">
           Education
         </h2>
-        <p className="text-white-50 text-xl mb-12">
-          My academic journey and qualifications
+        <p className="text-slate-400 text-lg md:text-xl mb-12 font-body">
+          My academic journey and qualifications.
         </p>
 
         <div className="space-y-6">
@@ -131,46 +124,36 @@ const EducationSection = () => {
             <div
               key={index}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="relative rounded-xl overflow-hidden group cursor-pointer"
+              className="relative rounded-2xl overflow-hidden group cursor-pointer bg-[#0e0e10]/40 backdrop-blur-md border border-white/5 shadow-sm hover:border-violet-500/20 hover:shadow-lg hover:shadow-violet-900/5 transition-all duration-300"
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
             >
-              {/* Glass morphism background */}
-              <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl" />
-              
               {/* Animated gradient on hover */}
               <div 
-                className={`absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-violet-500/20 to-purple-500/20 rounded-xl opacity-0 transition-opacity duration-500 ${
+                className={`absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-0 transition-opacity duration-500 ${
                   hoveredIndex === index ? "opacity-100" : ""
-                }`}
-              />
-              
-              {/* Glow effect on hover */}
-              <div 
-                className={`absolute inset-0 bg-gradient-to-br from-indigo-400/20 via-violet-400/20 to-purple-400/20 rounded-xl blur-xl transition-opacity duration-500 ${
-                  hoveredIndex === index ? "opacity-100" : "opacity-0"
                 }`}
               />
 
               <div className="relative z-10 p-6 md:p-8">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                   <div className="flex-1">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-2 transition-all duration-300">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-2 transition-all duration-300 text-slate-100 font-heading">
                       {edu.institution}
                     </h3>
-                    <p className="text-white-50 text-lg mb-3">{edu.degree}</p>
+                    <p className="text-slate-300 text-lg mb-3 font-medium">{edu.degree}</p>
                     <div className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-gradient-to-r from-indigo-400 to-violet-400 rounded-full"></span>
-                      <p className="text-white-50 text-sm">{edu.period}</p>
+                      <span className="w-1.5 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></span>
+                      <p className="text-slate-400 text-sm">{edu.period}</p>
                     </div>
                   </div>
                   <div className="flex flex-col items-start md:items-end gap-2">
                     {edu.gpa && (
-                      <span className="px-4 py-2 text-sm font-semibold bg-white/5 backdrop-blur-sm border border-white/10 rounded-full hover:border-white/30 hover:bg-white/10 transition-all duration-300">
+                      <span className="px-4 py-2 text-sm font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full hover:bg-indigo-500/20 transition-all duration-300">
                         {edu.gpa}
                       </span>
                     )}
-                    <span className="text-white-50 text-sm bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1">
+                    <span className="text-slate-300 text-sm bg-white/5 border border-white/10 rounded-full px-3 py-1 font-medium mt-1 md:mt-0">
                       {edu.status}
                     </span>
                   </div>

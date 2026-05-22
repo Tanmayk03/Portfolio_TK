@@ -16,7 +16,7 @@ const AnimatedCounter = () => {
       const numberElement = counter.querySelector(".counter-number");
       const item = counterItems[index];
 
-      // Handle CGPA differently (has decimal suffix)
+      // Handle CGPA/decimals or general numbers
       if (item.suffix.startsWith(".")) {
         gsap.set(numberElement, { innerText: "0" });
         gsap.to(numberElement, {
@@ -33,10 +33,9 @@ const AnimatedCounter = () => {
           },
         });
       } else if (item.suffix === "" && item.label.includes("Internship")) {
-        // For internship - just show the number without animation
+        // For internship - just show the number without animation or animate to 1
         numberElement.textContent = `${item.value}`;
       } else if (item.suffix.includes("rd Year") || item.suffix.includes("st") || item.suffix.includes("nd") || item.suffix.includes("th")) {
-        // For ordinal numbers like "3rd Year" - animate and show with suffix
         gsap.set(numberElement, { innerText: "0" });
         gsap.to(numberElement, {
           innerText: item.value,
@@ -102,10 +101,10 @@ const AnimatedCounter = () => {
 
   return (
     <div id="counter" ref={counterRef} className="section-padding relative">
-      {/* Cool animated background */}
+      {/* Cool animated background matching purple/indigo theme */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 left-1/4 w-72 h-72 bg-teal-500/15 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-cyan-500/15 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl" />
       </div>
 
       <div className="padding-x-lg relative z-10">
@@ -115,36 +114,33 @@ const AnimatedCounter = () => {
             <div
               key={index}
               ref={(el) => el && (countersRef.current[index] = el)}
-              className="relative rounded-lg p-10 flex flex-col justify-center overflow-hidden group cursor-pointer"
+              className="relative rounded-2xl p-8 flex flex-col justify-between overflow-hidden group cursor-pointer border border-white/5 hover:border-violet-500/20 bg-[#0e0e10]/40 backdrop-blur-md shadow-sm hover:shadow-xl hover:shadow-violet-900/5 transition-all duration-500 h-full min-h-[170px]"
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
             >
-              {/* Glass morphism background */}
-              <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg" />
-              
               {/* Animated gradient on hover */}
               <div 
-                className={`absolute inset-0 bg-gradient-to-br from-teal-500/20 via-cyan-500/20 to-blue-500/20 rounded-lg opacity-0 transition-opacity duration-500 ${
+                className={`absolute inset-0 bg-gradient-to-br from-purple-500/10 via-indigo-500/10 to-blue-500/10 rounded-2xl opacity-0 transition-opacity duration-500 ${
                   hoveredIndex === index ? "opacity-100" : ""
                 }`}
               />
               
               {/* Glow effect on hover */}
               <div 
-                className={`absolute inset-0 bg-gradient-to-br from-teal-400/20 via-cyan-400/20 to-blue-400/20 rounded-lg blur-xl transition-opacity duration-500 ${
+                className={`absolute inset-0 bg-gradient-to-br from-purple-400/10 via-indigo-400/10 to-blue-400/10 rounded-2xl blur-xl transition-opacity duration-500 ${
                   hoveredIndex === index ? "opacity-100" : "opacity-0"
                 }`}
               />
 
-              <div className="relative z-10">
-                <div className="counter-number text-white text-5xl font-bold mb-2">
+              <div className="relative z-10 flex flex-col justify-between h-full">
+                <div className="counter-number text-slate-100 text-5xl font-bold mb-4 whitespace-nowrap">
                   {item.suffix === "" && item.label.includes("Internship") 
                     ? item.value 
                     : item.suffix.includes("rd Year") || item.suffix.includes("st") || item.suffix.includes("nd") || item.suffix.includes("th")
                     ? `${item.value}${item.suffix}`
                     : `0 ${item.suffix}`}
                 </div>
-                <div className="text-white-50 text-lg leading-tight">{item.label}</div>
+                <div className="text-slate-400 text-base leading-snug font-medium">{item.label}</div>
               </div>
             </div>
           ))}
@@ -152,40 +148,37 @@ const AnimatedCounter = () => {
 
         {/* Mobile: Horizontal scroll */}
         <div className="md:hidden overflow-x-auto scrollbar-hide smooth-scroll">
-          <div className="flex gap-3 pb-4">
+          <div className="flex gap-4 pb-4">
             {counterItems.map((item, index) => (
               <div
                 key={`mobile-${index}`}
-                className="relative rounded-lg p-6 flex flex-col justify-center overflow-hidden group cursor-pointer min-w-[160px] flex-shrink-0"
+                className="relative rounded-2xl p-6 flex flex-col justify-between overflow-hidden group cursor-pointer min-w-[160px] min-h-[140px] flex-shrink-0 border border-white/5 bg-[#0e0e10]/40 backdrop-blur-md shadow-sm"
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={() => handleMouseLeave(index)}
               >
-                {/* Glass morphism background */}
-                <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg" />
-                
                 {/* Animated gradient on hover */}
                 <div 
-                  className={`absolute inset-0 bg-gradient-to-br from-teal-500/20 via-cyan-500/20 to-blue-500/20 rounded-lg opacity-0 transition-opacity duration-500 ${
+                  className={`absolute inset-0 bg-gradient-to-br from-purple-500/10 via-indigo-500/10 to-blue-500/10 rounded-2xl opacity-0 transition-opacity duration-500 ${
                     hoveredIndex === index ? "opacity-100" : ""
                   }`}
                 />
                 
                 {/* Glow effect on hover */}
                 <div 
-                  className={`absolute inset-0 bg-gradient-to-br from-teal-400/20 via-cyan-400/20 to-blue-400/20 rounded-lg blur-xl transition-opacity duration-500 ${
+                  className={`absolute inset-0 bg-gradient-to-br from-purple-400/10 via-indigo-400/10 to-blue-400/10 rounded-2xl blur-xl transition-opacity duration-500 ${
                     hoveredIndex === index ? "opacity-100" : "opacity-0"
                   }`}
                 />
 
-                <div className="relative z-10">
-                  <div className="counter-number text-white text-3xl font-bold mb-2">
+                <div className="relative z-10 flex flex-col justify-between h-full">
+                  <div className="counter-number text-slate-100 text-3xl font-bold mb-3 whitespace-nowrap">
                     {item.suffix === "" && item.label.includes("Internship") 
                       ? item.value 
                       : item.suffix.includes("rd Year") || item.suffix.includes("st") || item.suffix.includes("nd") || item.suffix.includes("th")
                       ? `${item.value}${item.suffix}`
                       : `0 ${item.suffix}`}
                   </div>
-                  <div className="text-white-50 text-sm leading-tight">{item.label}</div>
+                  <div className="text-slate-400 text-sm leading-snug font-medium">{item.label}</div>
                 </div>
               </div>
             ))}

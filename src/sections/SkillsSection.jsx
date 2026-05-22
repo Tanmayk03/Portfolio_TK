@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -8,9 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const SkillsSection = () => {
   const sectionRef = useRef(null);
-  const skillsRef = useRef([]);
-  const iconsRef = useRef([]);
-  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   useGSAP(() => {
     // Title animation
@@ -46,217 +43,176 @@ const SkillsSection = () => {
       }
     );
 
-    // Unique staggered card animations with different effects
-    skillsRef.current.forEach((skill, index) => {
-      if (skill) {
-        const icon = iconsRef.current[index];
-        const card = skill;
-        
-        // Card animation - simple and calm
-        gsap.fromTo(
-          card,
-          {
-            opacity: 0,
-            scale: 0.8,
-            transformOrigin: "center center",
-          },
-          {
-            opacity: 1,
-            scale: 1,
-            duration: 0.6,
-            delay: index * 0.1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: card,
-              start: "top 85%",
-            },
-          }
-        );
-
-        // Icon simple fade and scale animation
-        if (icon) {
-          gsap.fromTo(
-            icon,
-            {
-              scale: 0,
-              opacity: 0,
-            },
-            {
-              scale: 1,
-              opacity: 1,
-              duration: 0.6,
-              delay: index * 0.1 + 0.2,
-              ease: "power2.out",
-            }
-          );
-        }
+    // Group cards animation
+    gsap.fromTo(
+      ".animate-skill-group",
+      { opacity: 0, y: 30, scale: 0.95 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#skills",
+          start: "top 80%",
+        },
       }
-    });
+    );
   }, []);
 
-  // Hover animation handler - subtle effects
-  const handleMouseEnter = (index) => {
-    setHoveredIndex(index);
-    const card = skillsRef.current[index];
-    const icon = iconsRef.current[index];
-    
-    if (card && icon) {
-      // Subtle scale only
-      gsap.to(card, {
-        scale: 1.05,
-        duration: 0.3,
-        ease: "power2.out",
-      });
-      
-      // Icon subtle scale
-      gsap.to(icon, {
-        scale: 1.1,
-        duration: 0.3,
-        ease: "power2.out",
-      });
-    }
+  // Group skills by category
+  const categories = ["Languages", "Frontend", "Backend", "Databases", "Tools"];
+  const groupedSkills = skillsData.reduce((acc, skill) => {
+    const cat = skill.category || "Other";
+    if (!acc[cat]) acc[cat] = [];
+    acc[cat].push(skill);
+    return acc;
+  }, {});
+
+  // Progress width based on skill level
+  const getLevelWidth = (level) => {
+    const l = level?.toLowerCase() || "";
+    if (l.includes("advanced")) return "w-[90%]";
+    if (l.includes("beginner–intermediate") || l.includes("beginner-intermediate")) return "w-[55%]";
+    if (l.includes("intermediate")) return "w-[75%]";
+    if (l.includes("beginner")) return "w-[35%]";
+    return "w-[60%]";
   };
 
-  const handleMouseLeave = (index) => {
-    setHoveredIndex(null);
-    const card = skillsRef.current[index];
-    const icon = iconsRef.current[index];
-    
-    if (card && icon) {
-      // Reset card
-      gsap.to(card, {
-        scale: 1,
-        duration: 0.3,
-        ease: "power2.out",
-      });
-      
-      // Reset icon
-      gsap.to(icon, {
-        scale: 1,
-        duration: 0.3,
-        ease: "power2.out",
-      });
+  // Color mapping based on category
+  const getCategoryStyles = (category) => {
+    switch (category) {
+      case "Languages":
+        return {
+          accent: "bg-blue-500",
+          border: "hover:border-blue-500/30",
+          shadow: "hover:shadow-blue-500/10",
+          text: "text-blue-400 border-blue-500/20",
+          bg: "bg-blue-500/10"
+        };
+      case "Frontend":
+        return {
+          accent: "bg-purple-500",
+          border: "hover:border-purple-500/30",
+          shadow: "hover:shadow-purple-500/10",
+          text: "text-purple-400 border-purple-500/20",
+          bg: "bg-purple-500/10"
+        };
+      case "Backend":
+        return {
+          accent: "bg-violet-500",
+          border: "hover:border-violet-500/30",
+          shadow: "hover:shadow-violet-500/10",
+          text: "text-violet-400 border-violet-500/20",
+          bg: "bg-violet-500/10"
+        };
+      case "Databases":
+        return {
+          accent: "bg-emerald-500",
+          border: "hover:border-emerald-500/30",
+          shadow: "hover:shadow-emerald-500/10",
+          text: "text-emerald-400 border-emerald-500/20",
+          bg: "bg-emerald-500/10"
+        };
+      case "Tools":
+        return {
+          accent: "bg-rose-500",
+          border: "hover:border-rose-500/30",
+          shadow: "hover:shadow-rose-500/10",
+          text: "text-rose-400 border-rose-500/20",
+          bg: "bg-rose-500/10"
+        };
+      default:
+        return {
+          accent: "bg-indigo-500",
+          border: "hover:border-indigo-500/30",
+          shadow: "hover:shadow-indigo-500/10",
+          text: "text-indigo-400 border-indigo-500/20",
+          bg: "bg-indigo-500/10"
+        };
     }
   };
 
   return (
     <section id="skills" ref={sectionRef} className="section-padding relative">
-      {/* Cool animated background */}
+      {/* Decorative dark theme background glow orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
       
-      <div className="padding-x-lg relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+      <div className="padding-x-lg relative z-10 max-w-6xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent text-center font-heading">
           Skills & Technologies
         </h2>
-        <p className="text-white-50 text-xl mb-12">
-          Technologies I work with to build amazing digital experiences
+        <p className="text-slate-400 text-lg md:text-xl mb-16 text-center font-light">
+          My technical toolkit and the languages, libraries, and frameworks I use.
         </p>
 
-        {/* Desktop: Original grid layout */}
-        <div className="hidden md:block tech-grid">
-          {skillsData.map((skill, index) => (
-            <div
-              key={index}
-              ref={(el) => (skillsRef.current[index] = el)}
-              className="relative p-5 md:p-6 group cursor-pointer overflow-hidden skill-rounded min-h-[140px] md:min-h-[160px] flex items-center justify-center"
-              onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={() => handleMouseLeave(index)}
-            >
-              {/* Glass morphism background */}
-              <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/10 skill-rounded" />
-              
-              {/* Animated gradient border */}
-              <div 
-                className={`absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 skill-rounded opacity-0 transition-opacity duration-500 ${
-                  hoveredIndex === index ? "opacity-20" : ""
-                }`}
-              />
-              
-              {/* Glow effect on hover */}
-              <div 
-                className={`absolute inset-0 bg-gradient-to-br from-blue-400/30 via-purple-400/30 to-cyan-400/30 skill-rounded blur-xl transition-opacity duration-500 ${
-                  hoveredIndex === index ? "opacity-100" : "opacity-0"
-                }`}
-              />
-              
-              <div className="tech-icon-wrapper relative z-10 flex flex-col items-center justify-center text-center h-full">
-                <img
-                  ref={(el) => (iconsRef.current[index] = el)}
-                  src={skill.icon}
-                  alt={skill.name}
-                  className="w-14 h-14 md:w-16 md:h-16 object-contain mb-3 transition-all duration-300 drop-shadow-2xl"
-                />
-                <p className="text-base md:text-lg font-semibold mb-1 transition-all duration-300">
-                  {skill.name}
-                </p>
-                <p className="text-white-50 text-xs">{skill.level}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* Categorized Skills Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+          {categories.map((category) => {
+            const skills = groupedSkills[category] || [];
+            if (skills.length === 0) return null;
+            const styles = getCategoryStyles(category);
 
-        {/* Mobile: Horizontal scroll */}
-        <div className="md:hidden overflow-x-auto scrollbar-hide smooth-scroll">
-          <div className="flex gap-3 pb-4">
-            {skillsData.map((skill, index) => (
+            return (
               <div
-                key={`mobile-${index}`}
-                className="relative p-4 group cursor-pointer overflow-hidden skill-rounded min-w-[140px] flex-shrink-0"
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={() => handleMouseLeave(index)}
+                key={category}
+                className={`animate-skill-group bg-[#0e0e10]/40 backdrop-blur-md border border-white/5 rounded-2xl p-6 ${styles.border} ${styles.shadow} transition-all duration-500`}
               >
-                {/* Glass morphism background */}
-                <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/10 skill-rounded" />
-                
-                {/* Animated gradient border */}
-                <div 
-                  className={`absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 skill-rounded opacity-0 transition-opacity duration-500 ${
-                    hoveredIndex === index ? "opacity-20" : ""
-                  }`}
-                />
-                
-                {/* Glow effect on hover */}
-                <div 
-                  className={`absolute inset-0 bg-gradient-to-br from-blue-400/30 via-purple-400/30 to-cyan-400/30 skill-rounded blur-xl transition-opacity duration-500 ${
-                    hoveredIndex === index ? "opacity-100" : "opacity-0"
-                  }`}
-                />
-                
-                <div className="relative z-10 flex flex-col items-center justify-center text-center min-h-[130px]">
-                  <img
-                    src={skill.icon}
-                    alt={skill.name}
-                    className="w-14 h-14 object-contain mb-2 transition-all duration-300 drop-shadow-2xl"
-                  />
-                  <p className="text-sm font-semibold mb-1 transition-all duration-300">
-                    {skill.name}
-                  </p>
-                  <p className="text-white-50 text-xs">{skill.level}</p>
+                {/* Category Header */}
+                <div className="flex items-center justify-between mb-5 pb-2 border-b border-white/5">
+                  <h3 className="text-lg font-bold text-slate-100 font-heading tracking-wide">
+                    {category === "Frontend" ? "Frontend Development" : category === "Backend" ? "Backend Development" : category}
+                  </h3>
+                  <span className={`text-[10px] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider ${styles.text} ${styles.bg}`}>
+                    {skills.length} Skills
+                  </span>
+                </div>
+
+                {/* Badges container */}
+                <div className="flex flex-col gap-3">
+                  {skills.map((skill, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-between bg-white/[0.02] border border-white/[0.05] hover:border-white/10 rounded-xl px-4 py-3 transition-all duration-300 hover:bg-white/[0.06] group cursor-pointer"
+                    >
+                      <div className="flex items-center gap-3">
+                        <img
+                          src={skill.icon}
+                          alt={skill.name}
+                          className="w-7 h-7 object-contain transition-transform duration-300 group-hover:scale-110"
+                          onError={(e) => {
+                            e.target.src = "/images/code.svg";
+                          }}
+                        />
+                        <div className="flex flex-col text-left">
+                          <span className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors duration-300">
+                            {skill.name}
+                          </span>
+                          <span className="text-[10px] text-slate-400 group-hover:text-slate-300 transition-colors duration-300">
+                            {skill.level}
+                          </span>
+                        </div>
+                      </div>
+                      
+                      {/* Mini visual indicator */}
+                      <div className="flex items-center gap-2">
+                        <div className="w-16 h-1 bg-white/15 rounded-full overflow-hidden">
+                          <div className={`h-full ${styles.accent} rounded-full transition-all duration-500 ${getLevelWidth(skill.level)}`} />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </div>
-
-      {/* Scrollbar hide styles */}
-      <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .smooth-scroll {
-          scroll-behavior: smooth;
-          -webkit-overflow-scrolling: touch;
-        }
-      `}</style>
     </section>
   );
 };
