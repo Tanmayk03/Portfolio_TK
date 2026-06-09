@@ -113,7 +113,7 @@ const AnimatedCounter = () => {
             <div
               key={index}
               ref={(el) => el && (countersRef.current[index] = el)}
-              className="relative rounded-2xl p-5 md:p-8 flex flex-col justify-between overflow-hidden group cursor-pointer border border-white/5 hover:border-violet-500/20 bg-[#0e0e10]/40 backdrop-blur-md shadow-sm hover:shadow-xl hover:shadow-violet-900/5 transition-all duration-500 h-full min-h-[130px] md:min-h-[170px]"
+              className="relative rounded-2xl p-5 md:p-8 flex flex-col justify-between overflow-hidden group cursor-pointer border border-card-border hover:border-violet-500/20 bg-[#0e0e10]/40 backdrop-blur-md shadow-sm hover:shadow-xl hover:shadow-violet-900/5 transition-all duration-500 h-full min-h-[130px] md:min-h-[170px]"
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
             >
@@ -132,14 +132,14 @@ const AnimatedCounter = () => {
               />
 
               <div className="relative z-10 flex flex-col justify-between h-full">
-                <div className="counter-number text-slate-100 text-3xl md:text-5xl font-bold mb-2 md:mb-4 whitespace-nowrap">
+                <div className="counter-number text-cream text-3xl md:text-5xl font-bold mb-2 md:mb-4 whitespace-nowrap">
                   {item.suffix === "" && item.label.includes("Internship") 
                     ? item.value 
                     : item.suffix.includes("rd Year") || item.suffix.includes("st") || item.suffix.includes("nd") || item.suffix.includes("th")
                     ? `${item.value}${item.suffix}`
                     : `0 ${item.suffix}`}
                 </div>
-                <div className="text-slate-400 text-xs md:text-base leading-snug font-medium">{item.label}</div>
+                <div className="text-charcoal text-xs md:text-base leading-snug font-medium">{item.label}</div>
               </div>
             </div>
           ))}

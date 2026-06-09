@@ -1,29 +1,72 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
+:root {
+  --bg-primary: #060606;
+  --bg-secondary: rgba(255, 255, 255, 0.01);
+  --gold: #c5a880;
+  --bronze: #9c978e;
+  --bright-gold: #d4af37;
+  --cream: #f5f2eb;
+  --charcoal: #a6a198;
+  --light-beige: #e6dfd5;
+  --card-bg: rgba(18, 18, 18, 0.6);
+  --card-border: rgba(197, 168, 128, 0.04);
+  --card-border-hover: rgba(197, 168, 128, 0.15);
+  --input-bg: rgba(20, 20, 20, 0.6);
+  --grid-color: rgba(255, 255, 255, 0.012);
+}
+
+.light {
+  --bg-primary: #fbf9f4; /* Warm editorial cream */
+  --bg-secondary: rgba(0, 0, 0, 0.01);
+  --gold: #8a6c42;       /* Darker gold for contrast */
+  --bronze: #5c5750;     /* Darker bronze */
+  --bright-gold: #a3821d;
+  --cream: #1c1a17;      /* Dark charcoal text */
+  --charcoal: #57524a;   /* Medium grey text */
+  --light-beige: #756c5e;
+  --card-bg: rgba(255, 255, 255, 0.7); /* Warm light glass */
+  --card-border: rgba(138, 108, 66, 0.08);
+  --card-border-hover: rgba(138, 108, 66, 0.2);
+  --input-bg: rgba(245, 240, 230, 0.6);
+  --grid-color: rgba(138, 108, 66, 0.04);
+}
+
 @theme {
   --font-heading: "Outfit", sans-serif;
   --font-body: "Inter", sans-serif;
   --font-serif: "Cormorant Garamond", serif;
   
-  /* Premium Dark Palette (Warm Charcoal Theme) */
-  --color-bg-primary: #060606;
-  --color-bg-secondary: rgba(255, 255, 255, 0.01);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
   
   /* Soft Glowing Accent Colors */
-  --color-neon-blue: #c5a880; /* Mapped to Gold */
-  --color-neon-purple: #9c978e; /* Mapped to Bronze/Beige */
-  --color-neon-cyan: #d4af37; /* Mapped to Bright Gold */
+  --color-neon-blue: var(--gold); /* Mapped to Gold */
+  --color-neon-purple: var(--bronze); /* Mapped to Bronze/Beige */
+  --color-neon-cyan: var(--bright-gold); /* Mapped to Bright Gold */
   
-  /* Dark Mode Text and Surfaces */
-  --color-white-100: #f5f2eb; /* Creamy high contrast text */
-  --color-white-50: #a6a198;  /* Warm medium contrast text */
-  --color-black-50: rgba(197, 168, 128, 0.04); /* Subtle gold/beige borders */
-  --color-black-100: rgba(18, 18, 18, 0.6);   /* Dark warm glass card fill */
-  --color-black-200: rgba(197, 168, 128, 0.08); /* Hover highlight borders */
+  /* Semantic color utility classes for transitions and themes */
+  --color-gold: var(--gold);
+  --color-bronze: var(--bronze);
+  --color-bright-gold: var(--bright-gold);
+  --color-cream: var(--cream);
+  --color-charcoal: var(--charcoal);
+  --color-light-beige: var(--light-beige);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-card-border-hover: var(--card-border-hover);
+  --color-input-bg: var(--input-bg);
   
-  --color-blue-50: #9c978e;
-  --color-blue-100: rgba(20, 20, 20, 0.6); /* Form input background */
+  /* Backward compatible aliases for the component files */
+  --color-white-100: var(--cream); 
+  --color-white-50: var(--charcoal);  
+  --color-black-50: var(--card-border); 
+  --color-black-100: var(--card-bg);   
+  --color-black-200: var(--card-border-hover); 
+  
+  --color-blue-50: var(--bronze);
+  --color-blue-100: var(--input-bg); 
 }
 
 .font-serif {
@@ -38,6 +81,7 @@ body {
   color: var(--color-white-100);
   font-family: var(--font-body);
   position: relative;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* Lenis smooth scroll styling */
@@ -162,7 +206,7 @@ section {
 
   .hero-badge {
     background-color: var(--color-black-200);
-    @apply py-2 px-4 rounded-full w-fit text-sm md:text-base text-nowrap border border-white/5;
+    @apply py-2 px-4 rounded-full w-fit text-sm md:text-base text-nowrap border border-card-border;
   }
 
   .hero-3d-layout {
@@ -345,7 +389,7 @@ section {
     }
 
     .first-project-wrapper {
-      @apply w-full flex flex-col lg:flex-row gap-8 items-center bg-[#0e0e10]/60 backdrop-blur-md border border-white/5 rounded-2xl p-6 md:p-8 hover:border-violet-500/30 transition-all duration-500;
+      @apply w-full flex flex-col lg:flex-row gap-8 items-center bg-[#0e0e10]/60 backdrop-blur-md border border-card-border rounded-2xl p-6 md:p-8 hover:border-violet-500/30 transition-all duration-500;
 
       .image-wrapper {
         @apply w-full lg:w-[50%] h-64 md:h-[400px] relative overflow-hidden rounded-xl;
@@ -359,11 +403,11 @@ section {
         @apply w-full lg:w-[50%] flex flex-col justify-center;
 
         h2 {
-          @apply text-2xl md:text-3xl lg:text-4xl font-bold text-slate-100 font-heading mb-4;
+          @apply text-2xl md:text-3xl lg:text-4xl font-bold text-cream font-heading mb-4;
         }
         
         p {
-          @apply text-slate-400 text-sm md:text-base leading-relaxed font-body mb-6;
+          @apply text-charcoal text-sm md:text-base leading-relaxed font-body mb-6;
         }
       }
     }
@@ -373,10 +417,10 @@ section {
     }
 
     .project-card {
-      @apply flex flex-col bg-[#0e0e10]/40 backdrop-blur-md border border-white/5 rounded-2xl p-6 hover:border-violet-500/20 hover:shadow-lg hover:shadow-violet-900/5 transition-all duration-500;
+      @apply flex flex-col bg-[#0e0e10]/40 backdrop-blur-md border border-card-border rounded-2xl p-6 hover:border-violet-500/20 hover:shadow-lg hover:shadow-violet-900/5 transition-all duration-500;
 
       .image-wrapper {
-        @apply w-full h-48 relative overflow-hidden rounded-xl bg-slate-900/50 mb-5;
+        @apply w-full h-48 relative overflow-hidden rounded-xl bg-card-bg mb-5;
 
         img {
           @apply w-full h-full object-cover rounded-xl transition-transform duration-700 hover:scale-105;
@@ -384,11 +428,11 @@ section {
       }
 
       h2 {
-        @apply text-xl md:text-2xl font-semibold text-slate-200 font-heading mt-2 mb-3;
+        @apply text-xl md:text-2xl font-semibold text-cream font-heading mt-2 mb-3;
       }
 
       p {
-        @apply text-slate-400 text-sm leading-relaxed font-body mb-5 flex-grow;
+        @apply text-charcoal text-sm leading-relaxed font-body mb-5 flex-grow;
       }
     }
   }
@@ -470,7 +514,7 @@ section {
     input,
     textarea {
       background-color: var(--color-blue-100);
-      @apply w-full px-4 py-4 md:text-base text-sm rounded-md border border-white/5 outline-none text-white focus:border-violet-500/50 transition-colors;
+      @apply w-full px-4 py-4 md:text-base text-sm rounded-md border border-card-border outline-none text-white focus:border-violet-500/50 transition-colors;
       
       &::placeholder {
         color: var(--color-blue-50);

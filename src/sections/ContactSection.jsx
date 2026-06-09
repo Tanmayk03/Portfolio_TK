@@ -63,24 +63,24 @@ const ContactSection = () => {
   return (
     <section id="contact" ref={sectionRef} className="section-padding relative">
       <div className="padding-x-lg relative z-10 max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center bg-gradient-to-r from-[#c5a880] via-[#f5f2eb] to-[#9c978e] bg-clip-text text-transparent font-heading">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center bg-gradient-to-r from-[var(--gold)] via-[var(--cream)] to-[var(--bronze)] bg-clip-text text-transparent font-heading">
           Get In Touch
         </h2>
-        <p className="text-[#a6a198] text-lg md:text-xl mb-8 text-center font-body">
+        <p className="text-[var(--charcoal)] text-lg md:text-xl mb-8 text-center font-body">
           Have a project in mind? Let's work together to bring your ideas to life.
         </p>
         
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-12">
           <a 
             href="mailto:tanmaykapoor003@gmail.com" 
-            className="text-[#a6a198] hover:text-[#c5a880] transition-all duration-300 flex items-center gap-2.5 font-medium bg-white/[0.01] border border-white/[0.04] hover:border-[#c5a880]/20 rounded-full px-6 py-2.5 backdrop-blur-sm"
+            className="text-[var(--charcoal)] hover:text-[var(--gold)] transition-all duration-300 flex items-center gap-2.5 font-medium bg-card-bg border border-card-border hover:border-[var(--gold)]/20 rounded-full px-6 py-2.5 backdrop-blur-sm"
           >
             <span className="text-lg">📧</span>
             <span>tanmaykapoor003@gmail.com</span>
           </a>
           <a 
             href="tel:7905170353" 
-            className="text-[#a6a198] hover:text-[#c5a880] transition-all duration-300 flex items-center gap-2.5 font-medium bg-white/[0.01] border border-white/[0.04] hover:border-[#c5a880]/20 rounded-full px-6 py-2.5 backdrop-blur-sm"
+            className="text-[var(--charcoal)] hover:text-[var(--gold)] transition-all duration-300 flex items-center gap-2.5 font-medium bg-card-bg border border-card-border hover:border-[var(--gold)]/20 rounded-full px-6 py-2.5 backdrop-blur-sm"
           >
             <span className="text-lg">📱</span>
             <span>+91 7905170353</span>
@@ -90,10 +90,10 @@ const ContactSection = () => {
         <form 
           ref={formRef} 
           onSubmit={handleSubmit} 
-          className="space-y-6 bg-white/[0.01] p-8 md:p-10 rounded-2xl border border-white/[0.04] hover:border-[#c5a880]/20 shadow-xl hover:shadow-2xl transition-all duration-500"
+          className="space-y-6 bg-card-bg p-8 md:p-10 rounded-2xl border border-card-border hover:border-[var(--gold)]/20 shadow-xl hover:shadow-2xl transition-all duration-500"
         >
           <div>
-            <label htmlFor="name" className="text-[#a6a198] font-medium text-sm">Name</label>
+            <label htmlFor="name" className="text-[var(--charcoal)] font-medium text-sm">Name</label>
             <input
               type="text"
               id="name"
@@ -102,11 +102,11 @@ const ContactSection = () => {
               onChange={handleChange}
               placeholder="Your name"
               required
-              className="w-full bg-white/[0.01] border border-white/[0.04] text-[#f5f2eb] placeholder-neutral-600 focus:border-[#c5a880]/40 focus:ring-1 focus:ring-[#c5a880]/30 rounded-lg p-3.5 outline-none transition-all mt-1.5"
+              className="w-full bg-card-bg border border-card-border text-[var(--cream)] placeholder-neutral-600 focus:border-[var(--gold)]/40 focus:ring-1 focus:ring-[var(--gold)]/30 rounded-lg p-3.5 outline-none transition-all mt-1.5"
             />
           </div>
           <div>
-            <label htmlFor="email" className="text-[#a6a198] font-medium text-sm">Email</label>
+            <label htmlFor="email" className="text-[var(--charcoal)] font-medium text-sm">Email</label>
             <input
               type="email"
               id="email"
@@ -115,11 +115,11 @@ const ContactSection = () => {
               onChange={handleChange}
               placeholder="your.email@example.com"
               required
-              className="w-full bg-white/[0.01] border border-white/[0.04] text-[#f5f2eb] placeholder-neutral-600 focus:border-[#c5a880]/40 focus:ring-1 focus:ring-[#c5a880]/30 rounded-lg p-3.5 outline-none transition-all mt-1.5"
+              className="w-full bg-card-bg border border-card-border text-[var(--cream)] placeholder-neutral-600 focus:border-[var(--gold)]/40 focus:ring-1 focus:ring-[var(--gold)]/30 rounded-lg p-3.5 outline-none transition-all mt-1.5"
             />
           </div>
           <div>
-            <label htmlFor="message" className="text-[#a6a198] font-medium text-sm">Message</label>
+            <label htmlFor="message" className="text-[var(--charcoal)] font-medium text-sm">Message</label>
             <textarea
               id="message"
               name="message"
@@ -128,12 +128,12 @@ const ContactSection = () => {
               placeholder="Tell me about your project..."
               rows="6"
               required
-              className="w-full bg-white/[0.01] border border-white/[0.04] text-[#f5f2eb] placeholder-neutral-600 focus:border-[#c5a880]/40 focus:ring-1 focus:ring-[#c5a880]/30 rounded-lg p-3.5 outline-none transition-all mt-1.5 resize-none"
+              className="w-full bg-card-bg border border-card-border text-[var(--cream)] placeholder-neutral-600 focus:border-[var(--gold)]/40 focus:ring-1 focus:ring-[var(--gold)]/30 rounded-lg p-3.5 outline-none transition-all mt-1.5 resize-none"
             />
           </div>
           <button
             type="submit"
-            className="w-full py-4 bg-gradient-to-r from-[#c5a880] to-[#9c978e] hover:opacity-90 text-black font-bold rounded-lg flex justify-center items-center gap-2 shadow-lg shadow-amber-950/20 transition-all duration-300 cursor-pointer group"
+            className="w-full py-4 bg-gradient-to-r from-[var(--gold)] to-[var(--bronze)] hover:opacity-90 text-black font-bold rounded-lg flex justify-center items-center gap-2 shadow-lg shadow-amber-950/20 transition-all duration-300 cursor-pointer group"
           >
             <span>Send Message</span>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">

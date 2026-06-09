@@ -86,27 +86,27 @@ const SkillsSection = () => {
     switch (category) {
       case "Languages":
         return {
-          accent: "bg-[#c5a880]",
-          border: "hover:border-[#c5a880]/30",
-          shadow: "hover:shadow-[#c5a880]/5",
-          text: "text-[#c5a880] border-[#c5a880]/20",
-          bg: "bg-[#c5a880]/10"
+          accent: "bg-[var(--gold)]",
+          border: "hover:border-[var(--gold)]/30",
+          shadow: "hover:shadow-[var(--gold)]/5",
+          text: "text-[var(--gold)] border-[var(--gold)]/20",
+          bg: "bg-[var(--gold)]/10"
         };
       case "Frontend":
         return {
-          accent: "bg-[#e6dfd5]",
-          border: "hover:border-[#e6dfd5]/30",
-          shadow: "hover:shadow-[#e6dfd5]/5",
-          text: "text-[#e6dfd5] border-[#e6dfd5]/20",
+          accent: "bg-[var(--light-beige)]",
+          border: "hover:border-[var(--light-beige)]/30",
+          shadow: "hover:shadow-[var(--light-beige)]/5",
+          text: "text-[var(--light-beige)] border-[var(--light-beige)]/20",
           bg: "bg-white/[0.04]"
         };
       case "Backend":
         return {
-          accent: "bg-[#9c978e]",
-          border: "hover:border-[#9c978e]/30",
-          shadow: "hover:shadow-[#9c978e]/5",
-          text: "text-[#9c978e] border-[#9c978e]/20",
-          bg: "bg-[#9c978e]/10"
+          accent: "bg-[var(--bronze)]",
+          border: "hover:border-[var(--bronze)]/30",
+          shadow: "hover:shadow-[var(--bronze)]/5",
+          text: "text-[var(--bronze)] border-[var(--bronze)]/20",
+          bg: "bg-[var(--bronze)]/10"
         };
       case "Databases":
         return {
@@ -118,19 +118,19 @@ const SkillsSection = () => {
         };
       case "Tools":
         return {
-          accent: "bg-[#a6a198]",
-          border: "hover:border-[#a6a198]/30",
-          shadow: "hover:shadow-[#a6a198]/5",
-          text: "text-[#a6a198] border-[#a6a198]/20",
-          bg: "bg-white/[0.02]"
+          accent: "bg-[var(--charcoal)]",
+          border: "hover:border-[var(--charcoal)]/30",
+          shadow: "hover:shadow-[var(--charcoal)]/5",
+          text: "text-[var(--charcoal)] border-[var(--charcoal)]/20",
+          bg: "bg-card-bg"
         };
       default:
         return {
-          accent: "bg-[#c5a880]",
-          border: "hover:border-[#c5a880]/30",
-          shadow: "hover:shadow-[#c5a880]/5",
-          text: "text-[#c5a880] border-[#c5a880]/20",
-          bg: "bg-[#c5a880]/10"
+          accent: "bg-[var(--gold)]",
+          border: "hover:border-[var(--gold)]/30",
+          shadow: "hover:shadow-[var(--gold)]/5",
+          text: "text-[var(--gold)] border-[var(--gold)]/20",
+          bg: "bg-[var(--gold)]/10"
         };
     }
   };
@@ -144,10 +144,10 @@ const SkillsSection = () => {
       </div>
       
       <div className="padding-x-lg relative z-10 max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#c5a880] via-[#f5f2eb] to-[#9c978e] bg-clip-text text-transparent text-center font-heading">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[var(--gold)] via-[var(--cream)] to-[var(--bronze)] bg-clip-text text-transparent text-center font-heading">
           Skills & Technologies
         </h2>
-        <p className="text-[#a6a198] text-lg md:text-xl mb-16 text-center font-light">
+        <p className="text-[var(--charcoal)] text-lg md:text-xl mb-16 text-center font-light">
           My technical toolkit and the languages, libraries, and frameworks I use.
         </p>
 
@@ -161,11 +161,11 @@ const SkillsSection = () => {
             return (
               <div
                 key={category}
-                className={`animate-skill-group bg-white/[0.01] border border-white/[0.04] rounded-2xl p-6 ${styles.border} ${styles.shadow} transition-all duration-500`}
+                className={`animate-skill-group bg-card-bg border border-card-border rounded-2xl p-6 ${styles.border} ${styles.shadow} transition-all duration-500`}
               >
                 {/* Category Header */}
-                <div className="flex items-center justify-between mb-5 pb-2 border-b border-white/[0.04]">
-                  <h3 className="text-lg font-bold text-[#f5f2eb] font-heading tracking-wide">
+                <div className="flex items-center justify-between mb-5 pb-2 border-b border-card-border">
+                  <h3 className="text-lg font-bold text-[var(--cream)] font-heading tracking-wide">
                     {category === "Frontend" ? "Frontend Development" : category === "Backend" ? "Backend Development" : category}
                   </h3>
                   <span className={`text-[10px] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider ${styles.text} ${styles.bg}`}>
@@ -178,7 +178,7 @@ const SkillsSection = () => {
                   {skills.map((skill, index) => (
                     <div
                       key={index}
-                      className="flex items-center justify-between bg-white/[0.005] border border-white/[0.03] hover:border-[#c5a880]/20 rounded-xl px-4 py-3 transition-all duration-300 hover:bg-white/[0.03] group cursor-pointer"
+                      className="flex items-center justify-between bg-white/[0.005] border border-white/[0.03] hover:border-[var(--gold)]/20 rounded-xl px-4 py-3 transition-all duration-300 hover:bg-card-bg/90 group cursor-pointer"
                     >
                       <div className="flex items-center gap-3">
                         <img
@@ -190,10 +190,10 @@ const SkillsSection = () => {
                           }}
                         />
                         <div className="flex flex-col text-left">
-                          <span className="text-sm font-semibold text-[#a6a198] group-hover:text-[#f5f2eb] transition-colors duration-300">
+                          <span className="text-sm font-semibold text-[var(--charcoal)] group-hover:text-[var(--cream)] transition-colors duration-300">
                             {skill.name}
                           </span>
-                          <span className="text-[10px] text-neutral-500 group-hover:text-[#a6a198] transition-colors duration-300">
+                          <span className="text-[10px] text-neutral-500 group-hover:text-[var(--charcoal)] transition-colors duration-300">
                             {skill.level}
                           </span>
                         </div>

@@ -7,9 +7,10 @@ import HeroLights from "./HeroLights";
 import Particles from "./Particles";
 import { Suspense } from "react";
 
-const HeroExperience = () => {
+const HeroExperience = ({ theme }) => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
+  const isLight = theme === "light";
 
   return (
     <Canvas
@@ -17,8 +18,8 @@ const HeroExperience = () => {
       dpr={[1, 1.5]}
       gl={{ antialias: true, powerPreference: "high-performance" }}
     >
-      {/* deep blue ambient */}
-      <ambientLight intensity={0.2} color="#1a1a40" />
+      {/* dynamic ambient light based on theme */}
+      <ambientLight intensity={isLight ? 0.65 : 0.2} color={isLight ? "#fbf9f4" : "#1a1a40"} />
       {/* Configure OrbitControls to disable panning and control zoom based on device type */}
       <OrbitControls
         enablePan={false} // Prevents panning of the scene
@@ -30,8 +31,8 @@ const HeroExperience = () => {
       />
 
       <Suspense fallback={null}>
-        <HeroLights />
-        <Particles count={500} />
+        <HeroLights theme={theme} />
+        <Particles count={500} theme={theme} />
         <group
           scale={isMobile ? 0.7 : 1}
           position={[0, -3.5, 0]}

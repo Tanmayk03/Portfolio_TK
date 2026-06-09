@@ -1,42 +1,38 @@
 import * as THREE from "three";
 
-const HeroLights = () => (
-  <>
-    {/* lamp's light */}
-    <spotLight
-      position={[2, 5, 6]}
-      angle={0.15}
-      penumbra={0.2}
-      intensity={100}
-      color="white"
-    />
-    {/* warm overhead lamp */}
-    <spotLight
-      position={[4, 5, 4]}
-      angle={0.3}
-      penumbra={0.5}
-      intensity={40}
-      color="#d4af37"
-    />
-    {/* amber side fill */}
-    <spotLight
-      position={[-3, 5, 5]}
-      angle={0.4}
-      penumbra={1}
-      intensity={60}
-      color="#c5a880"
-    />
-    {/* area light for soft moody fill */}
-    <primitive
-      object={new THREE.RectAreaLight("#c5a880", 8, 3, 2)}
-      position={[1, 3, 4]}
-      rotation={[-Math.PI / 4, Math.PI / 4, 0]}
-      intensity={15}
-    />
-    {/* subtle point light for atmospheric tone */}
-    <pointLight position={[0, 1, 0]} intensity={10} color="#c5a880" />
-    <pointLight position={[1, 2, -2]} intensity={10} color="#9c978e" />
-  </>
-);
+const HeroLights = ({ theme }) => {
+  const isLight = theme === "light";
+  return (
+    <>
+      {/* lamp's light */}
+      <spotLight
+        position={[2, 5, 6]}
+        angle={0.15}
+        penumbra={0.2}
+        intensity={isLight ? 60 : 100}
+        color="white"
+      />
+      {/* warm overhead lamp */}
+      <spotLight
+        position={[4, 5, 4]}
+        angle={0.3}
+        penumbra={0.5}
+        intensity={isLight ? 25 : 40}
+        color={isLight ? "#a3821d" : "#d4af37"}
+      />
+      {/* amber side fill */}
+      <spotLight
+        position={[-3, 5, 5]}
+        angle={0.4}
+        penumbra={1}
+        intensity={isLight ? 40 : 60}
+        color={isLight ? "#8a6c42" : "var(--gold)"}
+      />
+      {/* subtle point light for atmospheric tone */}
+      <pointLight position={[0, 1, 0]} intensity={isLight ? 6 : 10} color={isLight ? "#8a6c42" : "var(--gold)"} />
+      <pointLight position={[1, 2, -2]} intensity={isLight ? 6 : 10} color={isLight ? "#5c5750" : "var(--bronze)"} />
+    </>
+  );
+};
 
 export default HeroLights;

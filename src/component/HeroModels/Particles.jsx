@@ -1,7 +1,7 @@
 import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 
-const Particles = ({ count = 200 }) => {
+const Particles = ({ count = 200, theme }) => {
   const mesh = useRef();
 
   // Generate static positions once
@@ -36,7 +36,7 @@ const Particles = ({ count = 200 }) => {
         />
       </bufferGeometry>
       <pointsMaterial
-        color="#c5a880"
+        color={theme === "light" ? "#8a6c42" : "var(--gold)"}
         size={0.06}
         transparent
         opacity={0.6}

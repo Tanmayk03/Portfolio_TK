@@ -17,7 +17,7 @@ const LogoSection = () => {
           {logos.map((logo) => (
             <span
               key={logo}
-              className="text-[10px] md:text-xs font-semibold tracking-[0.25em] font-heading text-[#a6a198] select-none hover:text-[#c5a880] transition-colors duration-300"
+              className="text-[10px] md:text-xs font-semibold tracking-[0.25em] font-heading text-[var(--charcoal)] select-none hover:text-[var(--gold)] transition-colors duration-300"
             >
               {logo}
             </span>

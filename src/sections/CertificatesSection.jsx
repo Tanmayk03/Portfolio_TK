@@ -170,10 +170,10 @@ const CertificatesSection = () => {
   return (
     <section id="certificates" ref={sectionRef} className="section-padding relative">
       <div className="padding-x-lg relative z-10 max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#c5a880] via-[#f5f2eb] to-[#9c978e] bg-clip-text text-transparent font-heading">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[var(--gold)] via-[var(--cream)] to-[var(--bronze)] bg-clip-text text-transparent font-heading">
           Certificates & Achievements
         </h2>
-        <p className="text-[#a6a198] text-lg md:text-xl mb-12 font-body">
+        <p className="text-[var(--charcoal)] text-lg md:text-xl mb-12 font-body">
           Professional certifications and notable achievements.
         </p>
 
@@ -182,40 +182,40 @@ const CertificatesSection = () => {
             <div
               key={index}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="relative rounded-2xl overflow-hidden group cursor-pointer bg-white/[0.01] border border-white/[0.04] shadow-sm hover:border-[#c5a880]/20 hover:shadow-lg hover:shadow-amber-950/5 transition-all duration-300"
+              className="relative rounded-2xl overflow-hidden group cursor-pointer bg-card-bg border border-card-border shadow-sm hover:border-[var(--gold)]/20 hover:shadow-lg hover:shadow-amber-950/5 transition-all duration-300"
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
             >
               {/* Animated gradient on hover */}
               <div 
-                className={`absolute inset-0 bg-gradient-to-br from-[#c5a880]/5 to-[#9c978e]/5 opacity-0 transition-opacity duration-500 ${
+                className={`absolute inset-0 bg-gradient-to-br from-[var(--gold)]/5 to-[var(--bronze)]/5 opacity-0 transition-opacity duration-500 ${
                   hoveredIndex === index ? "opacity-100" : ""
                 }`}
               />
 
               <div className="relative z-10 p-6 md:p-8 flex flex-col h-full">
                 <div className="mb-4 flex-grow">
-                  <h3 className="text-lg md:text-xl font-bold mb-3 leading-tight text-[#f5f2eb] font-heading">
+                  <h3 className="text-lg md:text-xl font-bold mb-3 leading-tight text-[var(--cream)] font-heading">
                     {cert.title}
                   </h3>
                   
                   <div className="space-y-2 mb-3">
                     <div className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-gradient-to-r from-[#c5a880] to-[#9c978e] rounded-full"></span>
-                      <p className="text-[#f5f2eb] text-sm font-semibold">
+                      <span className="w-1.5 h-1.5 bg-gradient-to-r from-[var(--gold)] to-[var(--bronze)] rounded-full"></span>
+                      <p className="text-[var(--cream)] text-sm font-semibold">
                         {cert.issuer}
                       </p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-gradient-to-r from-[#9c978e] to-[#c5a880] rounded-full"></span>
-                      <p className="text-[#a6a198] text-xs">{cert.date}</p>
+                      <span className="w-1.5 h-1.5 bg-gradient-to-r from-[var(--bronze)] to-[var(--gold)] rounded-full"></span>
+                      <p className="text-[var(--charcoal)] text-xs">{cert.date}</p>
                     </div>
-                    <div className="inline-block bg-white/[0.02] border border-white/[0.05] rounded-full px-3 py-1 mt-1">
-                      <p className="text-[#a6a198] text-xs font-medium">Duration: {cert.duration}</p>
+                    <div className="inline-block bg-card-bg border border-card-border rounded-full px-3 py-1 mt-1">
+                      <p className="text-[var(--charcoal)] text-xs font-medium">Duration: {cert.duration}</p>
                     </div>
                   </div>
                   
-                  <p className="text-[#a6a198] text-sm leading-relaxed">{cert.description}</p>
+                  <p className="text-[var(--charcoal)] text-sm leading-relaxed">{cert.description}</p>
                 </div>
 
                 {/* View Certificate Button */}
@@ -223,12 +223,12 @@ const CertificatesSection = () => {
                   href={cert.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white/[0.02] hover:bg-white/[0.05] border border-white/[0.05] hover:border-[#c5a880]/20 rounded-lg text-sm font-medium text-[#a6a198] hover:text-[#f5f2eb] transition-all duration-300 group/btn pointer-events-auto"
+                  className="mt-4 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-card-bg hover:bg-white/[0.05] border border-card-border hover:border-[var(--gold)]/20 rounded-lg text-sm font-medium text-[var(--charcoal)] hover:text-[var(--cream)] transition-all duration-300 group/btn pointer-events-auto"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <span className="group-hover/btn:text-[#c5a880] transition-colors">View Certificate</span>
+                  <span className="group-hover/btn:text-[var(--gold)] transition-colors">View Certificate</span>
                   <svg 
-                    className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:text-[#c5a880] text-neutral-500" 
+                    className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:text-[var(--gold)] text-neutral-500" 
                     fill="none" 
                     viewBox="0 0 24 24" 
                     stroke="currentColor"

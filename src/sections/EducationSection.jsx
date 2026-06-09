@@ -112,10 +112,10 @@ const EducationSection = () => {
   return (
     <section id="education" ref={sectionRef} className="section-padding relative">
       <div className="padding-x-lg relative z-10 max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#c5a880] via-[#f5f2eb] to-[#9c978e] bg-clip-text text-transparent font-heading">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[var(--gold)] via-[var(--cream)] to-[var(--bronze)] bg-clip-text text-transparent font-heading">
           Education
         </h2>
-        <p className="text-[#a6a198] text-lg md:text-xl mb-12 font-body">
+        <p className="text-[var(--charcoal)] text-lg md:text-xl mb-12 font-body">
           My academic journey and qualifications.
         </p>
 
@@ -124,13 +124,13 @@ const EducationSection = () => {
             <div
               key={index}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="relative rounded-2xl overflow-hidden group cursor-pointer bg-white/[0.01] border border-white/[0.04] shadow-sm hover:border-[#c5a880]/20 hover:shadow-lg hover:shadow-amber-950/5 transition-all duration-300"
+              className="relative rounded-2xl overflow-hidden group cursor-pointer bg-card-bg border border-card-border shadow-sm hover:border-[var(--gold)]/20 hover:shadow-lg hover:shadow-amber-950/5 transition-all duration-300"
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
             >
               {/* Animated gradient on hover */}
               <div 
-                className={`absolute inset-0 bg-gradient-to-br from-[#c5a880]/5 to-[#9c978e]/5 opacity-0 transition-opacity duration-500 ${
+                className={`absolute inset-0 bg-gradient-to-br from-[var(--gold)]/5 to-[var(--bronze)]/5 opacity-0 transition-opacity duration-500 ${
                   hoveredIndex === index ? "opacity-100" : ""
                 }`}
               />
@@ -138,22 +138,22 @@ const EducationSection = () => {
               <div className="relative z-10 p-6 md:p-8">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                   <div className="flex-1">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-2 transition-all duration-300 text-[#f5f2eb] font-heading">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-2 transition-all duration-300 text-[var(--cream)] font-heading">
                       {edu.institution}
                     </h3>
-                    <p className="text-[#a6a198] text-lg mb-3 font-medium">{edu.degree}</p>
+                    <p className="text-[var(--charcoal)] text-lg mb-3 font-medium">{edu.degree}</p>
                     <div className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-gradient-to-r from-[#c5a880] to-[#9c978e] rounded-full"></span>
-                      <p className="text-[#a6a198] text-sm">{edu.period}</p>
+                      <span className="w-1.5 h-1.5 bg-gradient-to-r from-[var(--gold)] to-[var(--bronze)] rounded-full"></span>
+                      <p className="text-[var(--charcoal)] text-sm">{edu.period}</p>
                     </div>
                   </div>
                   <div className="flex flex-col items-start md:items-end gap-2">
                     {edu.gpa && (
-                      <span className="px-4 py-2 text-sm font-semibold bg-[#c5a880]/10 text-[#c5a880] border border-[#c5a880]/20 rounded-full hover:bg-[#c5a880]/20 transition-all duration-300">
+                      <span className="px-4 py-2 text-sm font-semibold bg-[var(--gold)]/10 text-[var(--gold)] border border-[var(--gold)]/20 rounded-full hover:bg-[var(--gold)]/20 transition-all duration-300">
                         {edu.gpa}
                       </span>
                     )}
-                    <span className="text-[#a6a198] text-sm bg-white/[0.02] border border-white/[0.05] rounded-full px-3 py-1 font-medium mt-1 md:mt-0">
+                    <span className="text-[var(--charcoal)] text-sm bg-card-bg border border-card-border rounded-full px-3 py-1 font-medium mt-1 md:mt-0">
                       {edu.status}
                     </span>
                   </div>

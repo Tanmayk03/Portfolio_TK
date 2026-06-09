@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { navLinks } from "../constants";
 
-const NavBar = () => {
+const NavBar = ({ theme, setTheme }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -29,7 +29,7 @@ const NavBar = () => {
     <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
       <div className="inner relative z-10">
         <div className="logo-wrapper">
-          <a href="#hero" className="logo-text text-slate-100 flex items-center" onClick={closeMobileMenu}>
+          <a href="#hero" className="logo-text text-cream flex items-center" onClick={closeMobileMenu}>
             <span className="logo-name">Tanmay Kapoor</span>
             <span className="logo-divider hidden sm:inline-block"></span>
             <span className="logo-badge hidden sm:inline-flex">Developer</span>
@@ -41,53 +41,72 @@ const NavBar = () => {
           <ul>
             {navLinks.map(({ link, name }) => (
               <li key={name} className="group relative">
-                <a href={link} className="relative text-slate-300 font-medium py-2 px-1 flex items-center">
+                <a href={link} className="relative text-charcoal font-medium py-2 px-1 flex items-center">
                   <span className="transition-colors hover:text-white duration-300">{name}</span>
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#c5a880] scale-0 group-hover:scale-100 transition-transform duration-300 shadow-[0_0_10px_rgba(197,168,128,0.8)]" />
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[var(--gold)] scale-0 group-hover:scale-100 transition-transform duration-300 shadow-[0_0_10px_rgba(197,168,128,0.8)]" />
                 </a>
               </li>
             ))}
           </ul>
         </nav>
 
-        <a href="#contact" className="group hidden lg:flex items-center gap-2 relative overflow-hidden rounded-full border border-white/[0.04] bg-white/[0.01] backdrop-blur-sm shadow-sm transition-all duration-300 hover:border-[#c5a880]/30 hover:shadow-[0_0_20px_rgba(197,168,128,0.15)] hover:text-white cursor-pointer px-6 py-2.5">
-          {/* Hover gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#c5a880] via-[#e6dfd5] to-[#9c978e] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          
-          <span className="relative z-10 text-sm font-semibold text-slate-200 group-hover:text-black transition-colors duration-300">
-            Contact me
-          </span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-4 h-4 relative z-10 stroke-slate-300 group-hover:stroke-black group-hover:translate-x-0.5 transition-all duration-300"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
+        <div className="flex items-center gap-3 relative z-10">
+          {/* Theme Toggle Button */}
+          <button
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            className="flex items-center justify-center w-9 h-9 rounded-full border border-card-border bg-card-bg hover:border-gold/30 hover:bg-white/[0.05] transition-all duration-300 cursor-pointer text-gold shadow-sm"
+            aria-label="Toggle theme"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
+            {theme === "light" ? (
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 transition-transform duration-500 rotate-90 text-gold">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 transition-transform duration-500 text-gold">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+              </svg>
+            )}
+          </button>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden flex items-center justify-center w-10 h-10 relative text-slate-200"
-          onClick={toggleMobileMenu}
-          aria-label="Toggle menu"
-        >
-          {/* Button glass background */}
-          <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg" />
-          
-          {mobileMenuOpen ? (
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 relative z-10 stroke-slate-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          <a href="#contact" className="group hidden lg:flex items-center gap-2 relative overflow-hidden rounded-full border border-card-border bg-card-bg backdrop-blur-sm shadow-sm transition-all duration-300 hover:border-gold/30 hover:shadow-[0_0_20px_rgba(197,168,128,0.15)] hover:text-white cursor-pointer px-6 py-2.5">
+            {/* Hover gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-gold via-cream to-bronze opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            <span className="relative z-10 text-sm font-semibold text-cream group-hover:text-black transition-colors duration-300">
+              Contact me
+            </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-4 h-4 relative z-10 stroke-slate-300 group-hover:stroke-black group-hover:translate-x-0.5 transition-all duration-300"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 relative z-10 stroke-slate-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          )}
-        </button>
+          </a>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden flex items-center justify-center w-10 h-10 relative text-cream"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle menu"
+          >
+            {/* Button glass background */}
+            <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-card-border rounded-lg" />
+            
+            {mobileMenuOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 relative z-10 stroke-slate-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 relative z-10 stroke-slate-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -97,7 +116,7 @@ const NavBar = () => {
         }`}
       >
           {/* Glass morphism background for mobile menu */}
-          <div className="absolute inset-0 bg-[#060606]/95 backdrop-blur-md border-b border-white/10" />
+          <div className="absolute inset-0 bg-[var(--bg-primary)]/95 backdrop-blur-md border-b border-card-border" />
           
           <nav className="flex flex-col p-5 relative z-10">
             {navLinks.map(({ link, name }) => (
@@ -105,7 +124,7 @@ const NavBar = () => {
                 key={name}
                 href={link}
                 onClick={closeMobileMenu}
-                className="py-3 text-slate-300 font-medium hover:text-[#c5a880] transition-colors border-b border-white/5 last:border-0"
+                className="py-3 text-charcoal font-medium hover:text-[var(--gold)] transition-colors border-b border-card-border last:border-0"
               >
                 {name}
               </a>
@@ -116,12 +135,12 @@ const NavBar = () => {
               className="relative mt-4 py-3 px-5 rounded-lg text-center font-semibold overflow-hidden group"
             >
               {/* Glass background */}
-              <div className="absolute inset-0 bg-white/5 border border-white/10 rounded-lg" />
+              <div className="absolute inset-0 bg-white/5 border border-card-border rounded-lg" />
               
               {/* Hover gradient effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#c5a880] to-[#9c978e] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[var(--gold)] to-[var(--bronze)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
               
-              <span className="relative z-10 transition-colors text-slate-200 group-hover:text-white">Contact me</span>
+              <span className="relative z-10 transition-colors text-cream group-hover:text-white">Contact me</span>
             </a>
           </nav>
         </div>

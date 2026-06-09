@@ -96,14 +96,14 @@ const ExperienceSection = () => {
   return (
     <section id="experience" ref={sectionRef} className="section-padding relative">
       <div className="padding-x-lg relative z-10 max-w-5xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#c5a880] via-[#f5f2eb] to-[#9c978e] bg-clip-text text-transparent font-heading">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[var(--gold)] via-[var(--cream)] to-[var(--bronze)] bg-clip-text text-transparent font-heading">
           Experience
         </h2>
-        <p className="text-[#a6a198] text-lg md:text-xl mb-16 font-light">
+        <p className="text-[var(--charcoal)] text-lg md:text-xl mb-16 font-light">
           My professional journey and the roles I have undertaken.
         </p>
 
-        <div className="relative border-l border-white/[0.05] ml-6 md:ml-10 space-y-12">
+        <div className="relative border-l border-card-border ml-6 md:ml-10 space-y-12">
           {experienceData.map((exp, index) => (
             <div
               key={index}
@@ -116,56 +116,56 @@ const ExperienceSection = () => {
               <div 
                 className={`absolute left-[-9px] top-8 w-4 h-4 rounded-full border-2 transition-all duration-500 z-10 ${
                   hoveredIndex === index 
-                    ? "bg-[#c5a880] border-[#c5a880] shadow-[0_0_12px_rgba(197,168,128,0.6)] scale-125" 
-                    : "bg-[#060606] border-white/20"
+                    ? "bg-[var(--gold)] border-[var(--gold)] shadow-[0_0_12px_rgba(197,168,128,0.6)] scale-125" 
+                    : "bg-[var(--bg-primary)] border-white/20"
                 }`}
               />
               
-              <div className="flex flex-col md:flex-row md:items-start gap-6 bg-white/[0.01] hover:bg-white/[0.03] border border-white/[0.04] hover:border-[#c5a880]/20 rounded-2xl p-6 md:p-8 transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-amber-950/5">
+              <div className="flex flex-col md:flex-row md:items-start gap-6 bg-card-bg hover:bg-card-bg/90 border border-card-border hover:border-[var(--gold)]/20 rounded-2xl p-6 md:p-8 transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-amber-950/5">
                 <div className="flex-shrink-0">
                   <div className="relative">
                     <img
                       src={exp.logoPath}
                       alt={exp.company}
-                      className="w-16 h-16 md:w-20 md:h-20 object-contain rounded-2xl bg-white/[0.01] p-3 border border-white/[0.05] transition-all duration-500 group-hover:border-[#c5a880]/20"
+                      className="w-16 h-16 md:w-20 md:h-20 object-contain rounded-2xl bg-card-bg p-3 border border-card-border transition-all duration-500 group-hover:border-[var(--gold)]/20"
                     />
                   </div>
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3 gap-2">
                     <div>
-                      <h3 className="text-xl md:text-2xl font-bold text-[#f5f2eb] font-heading">
+                      <h3 className="text-xl md:text-2xl font-bold text-[var(--cream)] font-heading">
                         {exp.title}
                       </h3>
-                      <p className="text-[#c5a880] font-medium text-sm md:text-base mt-1">{exp.company}</p>
+                      <p className="text-[var(--gold)] font-medium text-sm md:text-base mt-1">{exp.company}</p>
                     </div>
-                    <span className="text-[#a6a198] text-xs md:text-sm font-medium bg-white/[0.02] px-3 py-1.5 rounded-full border border-white/[0.05] w-fit">
+                    <span className="text-[var(--charcoal)] text-xs md:text-sm font-medium bg-card-bg px-3 py-1.5 rounded-full border border-card-border w-fit">
                       {exp.date}
                     </span>
                   </div>
                   
-                  <div className="flex flex-wrap items-center gap-3 text-xs text-[#a6a198] mb-4">
+                  <div className="flex flex-wrap items-center gap-3 text-xs text-[var(--charcoal)] mb-4">
                     {exp.type && (
                       <span className="flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 bg-[#9c978e] rounded-full"></span>
+                        <span className="w-1.5 h-1.5 bg-[var(--bronze)] rounded-full"></span>
                         {exp.type}
                       </span>
                     )}
                     {exp.location && (
                       <span className="flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 bg-[#9c978e] rounded-full"></span>
+                        <span className="w-1.5 h-1.5 bg-[var(--bronze)] rounded-full"></span>
                         {exp.location}
                       </span>
                     )}
                   </div>
                   
-                  <p className="text-[#a6a198] text-sm md:text-base mb-6 leading-relaxed font-normal">{exp.description}</p>
+                  <p className="text-[var(--charcoal)] text-sm md:text-base mb-6 leading-relaxed font-normal">{exp.description}</p>
                   
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-3 py-1 text-xs font-medium text-[#a6a198] bg-white/[0.02] border border-white/[0.05] rounded-full transition-all duration-300 group-hover:border-[#c5a880]/20 group-hover:text-[#f5f2eb]"
+                        className="px-3 py-1 text-xs font-medium text-[var(--charcoal)] bg-card-bg border border-card-border rounded-full transition-all duration-300 group-hover:border-[var(--gold)]/20 group-hover:text-[var(--cream)]"
                       >
                         {tech}
                       </span>

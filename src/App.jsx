@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Lenis from "lenis"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -18,6 +18,20 @@ import ScrollProgressBar from "./component/ScrollProgressBar.jsx"
 gsap.registerPlugin(ScrollTrigger)
 
 const App = () => {
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "dark";
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === "light") {
+      root.classList.add("light");
+    } else {
+      root.classList.remove("light");
+    }
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -69,8 +83,8 @@ const App = () => {
       {/* Global animated background for all pages */}
       <GlobalBackground />
       
-      <NavBar />
-      <Hero />
+      <NavBar theme={theme} setTheme={setTheme} />
+      <Hero theme={theme} />
       <LogoSection />
       <ShowcaseSection />
       <ExperienceSection />
