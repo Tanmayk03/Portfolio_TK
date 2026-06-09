@@ -49,10 +49,10 @@ const ExperienceSection = () => {
       if (card) {
         gsap.fromTo(
           card,
-          { opacity: 0, x: index % 2 === 0 ? -50 : 50, scale: 0.95 },
+          { opacity: 0, y: 30, scale: 0.98 },
           {
             opacity: 1,
-            x: 0,
+            y: 0,
             scale: 1,
             duration: 0.8,
             delay: index * 0.15,

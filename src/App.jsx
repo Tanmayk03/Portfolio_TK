@@ -33,10 +33,31 @@ const App = () => {
     }
     rafId = requestAnimationFrame(raf)
 
-    gsap.ticker.lagSmoothing(0)
+    gsap.ticker.lagSmoothing(1000, 16)
+
+    // Intercept all anchor clicks for smooth scrolling
+    const handleAnchorClick = (e) => {
+      const anchor = e.target.closest("a")
+      if (!anchor) return
+      
+      const href = anchor.getAttribute("href")
+      if (href && href.startsWith("#")) {
+        const target = document.querySelector(href)
+        if (target) {
+          e.preventDefault()
+          lenis.scrollTo(target, {
+            offset: -80, // Align with css scroll-margin-top
+            duration: 1.2,
+          })
+        }
+      }
+    }
+
+    document.addEventListener("click", handleAnchorClick)
 
     return () => {
       cancelAnimationFrame(rafId)
+      document.removeEventListener("click", handleAnchorClick)
       lenis.destroy()
     }
   }, [])

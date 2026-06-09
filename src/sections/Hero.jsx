@@ -88,8 +88,8 @@ const Hero = () => {
         </header>
 
         {/* Right Section */}
-        <figure className="hidden xl:block">
-          <div className="hero-3d-layout">
+        <figure className="block">
+          <div className="hero-3d-layout pointer-events-none xl:pointer-events-auto">
             <HeroExperience />
           </div>
         </figure>
