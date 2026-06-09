@@ -88,7 +88,7 @@ const Hero = () => {
         </header>
 
         {/* Right Section */}
-        <figure className="block">
+        <figure className="block w-full">
           <div className="hero-3d-layout pointer-events-none xl:pointer-events-auto">
             <HeroExperience />
           </div>
