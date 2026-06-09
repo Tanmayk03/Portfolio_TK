@@ -97,7 +97,7 @@ const NavBar = () => {
         }`}
       >
           {/* Glass morphism background for mobile menu */}
-          <div className="absolute inset-0 bg-[#030014]/95 backdrop-blur-md border-b border-white/10" />
+          <div className="absolute inset-0 bg-[#060606]/95 backdrop-blur-md border-b border-white/10" />
           
           <nav className="flex flex-col p-5 relative z-10">
             {navLinks.map(({ link, name }) => (
@@ -105,7 +105,7 @@ const NavBar = () => {
                 key={name}
                 href={link}
                 onClick={closeMobileMenu}
-                className="py-3 text-slate-300 font-medium hover:text-violet-400 transition-colors border-b border-white/5 last:border-0"
+                className="py-3 text-slate-300 font-medium hover:text-[#c5a880] transition-colors border-b border-white/5 last:border-0"
               >
                 {name}
               </a>
@@ -119,7 +119,7 @@ const NavBar = () => {
               <div className="absolute inset-0 bg-white/5 border border-white/10 rounded-lg" />
               
               {/* Hover gradient effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#c5a880] to-[#9c978e] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
               
               <span className="relative z-10 transition-colors text-slate-200 group-hover:text-white">Contact me</span>
             </a>

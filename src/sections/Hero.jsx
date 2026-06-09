@@ -61,7 +61,7 @@ const Hero = () => {
               into Real Projects
             </h1>
             <h1 className="hero-text-h1 text-4xl md:text-5xl lg:text-7xl font-light tracking-tight text-[#c5a880] font-serif italic mt-1">
-              & Delivering Results
+              that Deliver Results
             </h1>
           </div>
 
