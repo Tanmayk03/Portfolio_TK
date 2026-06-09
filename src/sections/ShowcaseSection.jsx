@@ -46,7 +46,7 @@ const AppShowcase = () => {
         {/* Section Title */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-[#f5f2eb] font-heading mb-4">
-            Selected <span className="font-serif italic font-light">Work</span>
+            Featured <span className="font-serif italic font-light text-[#c5a880]">Projects</span>
           </h2>
           <p className="text-[#a6a198] max-w-xl mx-auto font-body text-sm md:text-base">
             A curated showcase of applications I have built, demonstrating full-stack engineering, AI automation, and secure transactions.
