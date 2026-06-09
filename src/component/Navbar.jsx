@@ -43,23 +43,23 @@ const NavBar = () => {
               <li key={name} className="group relative">
                 <a href={link} className="relative text-slate-300 font-medium py-2 px-1 flex items-center">
                   <span className="transition-colors hover:text-white duration-300">{name}</span>
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-indigo-500 scale-0 group-hover:scale-100 transition-transform duration-300 shadow-[0_0_10px_rgba(99,102,241,0.8)]" />
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#c5a880] scale-0 group-hover:scale-100 transition-transform duration-300 shadow-[0_0_10px_rgba(197,168,128,0.8)]" />
                 </a>
               </li>
             ))}
           </ul>
         </nav>
 
-        <a href="#contact" className="group hidden lg:flex items-center gap-2 relative overflow-hidden rounded-full border border-white/10 bg-white/5 backdrop-blur-sm shadow-sm transition-all duration-300 hover:border-indigo-500/30 hover:shadow-[0_0_20px_rgba(99,102,241,0.2)] hover:text-white cursor-pointer px-6 py-2.5">
+        <a href="#contact" className="group hidden lg:flex items-center gap-2 relative overflow-hidden rounded-full border border-white/[0.04] bg-white/[0.01] backdrop-blur-sm shadow-sm transition-all duration-300 hover:border-[#c5a880]/30 hover:shadow-[0_0_20px_rgba(197,168,128,0.15)] hover:text-white cursor-pointer px-6 py-2.5">
           {/* Hover gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#c5a880] via-[#e6dfd5] to-[#9c978e] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           
-          <span className="relative z-10 text-sm font-semibold text-slate-200 group-hover:text-white transition-colors duration-300">
+          <span className="relative z-10 text-sm font-semibold text-slate-200 group-hover:text-black transition-colors duration-300">
             Contact me
           </span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-4 h-4 relative z-10 stroke-slate-300 group-hover:stroke-white group-hover:translate-x-0.5 transition-all duration-300"
+            className="w-4 h-4 relative z-10 stroke-slate-300 group-hover:stroke-black group-hover:translate-x-0.5 transition-all duration-300"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

@@ -86,51 +86,51 @@ const SkillsSection = () => {
     switch (category) {
       case "Languages":
         return {
-          accent: "bg-blue-500",
-          border: "hover:border-blue-500/30",
-          shadow: "hover:shadow-blue-500/10",
-          text: "text-blue-400 border-blue-500/20",
-          bg: "bg-blue-500/10"
+          accent: "bg-[#c5a880]",
+          border: "hover:border-[#c5a880]/30",
+          shadow: "hover:shadow-[#c5a880]/5",
+          text: "text-[#c5a880] border-[#c5a880]/20",
+          bg: "bg-[#c5a880]/10"
         };
       case "Frontend":
         return {
-          accent: "bg-purple-500",
-          border: "hover:border-purple-500/30",
-          shadow: "hover:shadow-purple-500/10",
-          text: "text-purple-400 border-purple-500/20",
-          bg: "bg-purple-500/10"
+          accent: "bg-[#e6dfd5]",
+          border: "hover:border-[#e6dfd5]/30",
+          shadow: "hover:shadow-[#e6dfd5]/5",
+          text: "text-[#e6dfd5] border-[#e6dfd5]/20",
+          bg: "bg-white/[0.04]"
         };
       case "Backend":
         return {
-          accent: "bg-violet-500",
-          border: "hover:border-violet-500/30",
-          shadow: "hover:shadow-violet-500/10",
-          text: "text-violet-400 border-violet-500/20",
-          bg: "bg-violet-500/10"
+          accent: "bg-[#9c978e]",
+          border: "hover:border-[#9c978e]/30",
+          shadow: "hover:shadow-[#9c978e]/5",
+          text: "text-[#9c978e] border-[#9c978e]/20",
+          bg: "bg-[#9c978e]/10"
         };
       case "Databases":
         return {
-          accent: "bg-emerald-500",
-          border: "hover:border-emerald-500/30",
-          shadow: "hover:shadow-emerald-500/10",
-          text: "text-emerald-400 border-emerald-500/20",
-          bg: "bg-emerald-500/10"
+          accent: "bg-[#d4af37]",
+          border: "hover:border-[#d4af37]/30",
+          shadow: "hover:shadow-[#d4af37]/5",
+          text: "text-[#d4af37] border-[#d4af37]/20",
+          bg: "bg-[#d4af37]/10"
         };
       case "Tools":
         return {
-          accent: "bg-rose-500",
-          border: "hover:border-rose-500/30",
-          shadow: "hover:shadow-rose-500/10",
-          text: "text-rose-400 border-rose-500/20",
-          bg: "bg-rose-500/10"
+          accent: "bg-[#a6a198]",
+          border: "hover:border-[#a6a198]/30",
+          shadow: "hover:shadow-[#a6a198]/5",
+          text: "text-[#a6a198] border-[#a6a198]/20",
+          bg: "bg-white/[0.02]"
         };
       default:
         return {
-          accent: "bg-indigo-500",
-          border: "hover:border-indigo-500/30",
-          shadow: "hover:shadow-indigo-500/10",
-          text: "text-indigo-400 border-indigo-500/20",
-          bg: "bg-indigo-500/10"
+          accent: "bg-[#c5a880]",
+          border: "hover:border-[#c5a880]/30",
+          shadow: "hover:shadow-[#c5a880]/5",
+          text: "text-[#c5a880] border-[#c5a880]/20",
+          bg: "bg-[#c5a880]/10"
         };
     }
   };
@@ -139,15 +139,15 @@ const SkillsSection = () => {
     <section id="skills" ref={sectionRef} className="section-padding relative">
       {/* Decorative dark theme background glow orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-600/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-amber-600/5 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
       
       <div className="padding-x-lg relative z-10 max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent text-center font-heading">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#c5a880] via-[#f5f2eb] to-[#9c978e] bg-clip-text text-transparent text-center font-heading">
           Skills & Technologies
         </h2>
-        <p className="text-slate-400 text-lg md:text-xl mb-16 text-center font-light">
+        <p className="text-[#a6a198] text-lg md:text-xl mb-16 text-center font-light">
           My technical toolkit and the languages, libraries, and frameworks I use.
         </p>
 
@@ -161,11 +161,11 @@ const SkillsSection = () => {
             return (
               <div
                 key={category}
-                className={`animate-skill-group bg-[#0e0e10]/40 backdrop-blur-md border border-white/5 rounded-2xl p-6 ${styles.border} ${styles.shadow} transition-all duration-500`}
+                className={`animate-skill-group bg-white/[0.01] border border-white/[0.04] rounded-2xl p-6 ${styles.border} ${styles.shadow} transition-all duration-500`}
               >
                 {/* Category Header */}
-                <div className="flex items-center justify-between mb-5 pb-2 border-b border-white/5">
-                  <h3 className="text-lg font-bold text-slate-100 font-heading tracking-wide">
+                <div className="flex items-center justify-between mb-5 pb-2 border-b border-white/[0.04]">
+                  <h3 className="text-lg font-bold text-[#f5f2eb] font-heading tracking-wide">
                     {category === "Frontend" ? "Frontend Development" : category === "Backend" ? "Backend Development" : category}
                   </h3>
                   <span className={`text-[10px] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider ${styles.text} ${styles.bg}`}>
@@ -178,7 +178,7 @@ const SkillsSection = () => {
                   {skills.map((skill, index) => (
                     <div
                       key={index}
-                      className="flex items-center justify-between bg-white/[0.02] border border-white/[0.05] hover:border-white/10 rounded-xl px-4 py-3 transition-all duration-300 hover:bg-white/[0.06] group cursor-pointer"
+                      className="flex items-center justify-between bg-white/[0.005] border border-white/[0.03] hover:border-[#c5a880]/20 rounded-xl px-4 py-3 transition-all duration-300 hover:bg-white/[0.03] group cursor-pointer"
                     >
                       <div className="flex items-center gap-3">
                         <img
@@ -190,10 +190,10 @@ const SkillsSection = () => {
                           }}
                         />
                         <div className="flex flex-col text-left">
-                          <span className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors duration-300">
+                          <span className="text-sm font-semibold text-[#a6a198] group-hover:text-[#f5f2eb] transition-colors duration-300">
                             {skill.name}
                           </span>
-                          <span className="text-[10px] text-slate-400 group-hover:text-slate-300 transition-colors duration-300">
+                          <span className="text-[10px] text-neutral-500 group-hover:text-[#a6a198] transition-colors duration-300">
                             {skill.level}
                           </span>
                         </div>
@@ -201,7 +201,7 @@ const SkillsSection = () => {
                       
                       {/* Mini visual indicator */}
                       <div className="flex items-center gap-2">
-                        <div className="w-16 h-1 bg-white/15 rounded-full overflow-hidden">
+                        <div className="w-16 h-1 bg-white/5 rounded-full overflow-hidden">
                           <div className={`h-full ${styles.accent} rounded-full transition-all duration-500 ${getLevelWidth(skill.level)}`} />
                         </div>
                       </div>

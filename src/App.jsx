@@ -4,6 +4,8 @@ import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import NavBar from "./component/Navbar.jsx"
 import Hero from "./sections/Hero.jsx"
+import LogoSection from "./component/LogoSection.jsx"
+import ServicesSection from "./sections/ServicesSection.jsx"
 import ShowcaseSection from "./sections/ShowcaseSection.jsx"
 import ExperienceSection from "./sections/ExperienceSection.jsx"
 import SkillsSection from "./sections/SkillsSection.jsx"
@@ -70,6 +72,8 @@ const App = () => {
       
       <NavBar />
       <Hero />
+      <LogoSection />
+      <ServicesSection />
       <ShowcaseSection />
       <ExperienceSection />
       <SkillsSection />

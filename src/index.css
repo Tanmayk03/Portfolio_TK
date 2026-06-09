@@ -1,28 +1,33 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 @theme {
   --font-heading: "Outfit", sans-serif;
   --font-body: "Inter", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
   
-  /* Premium Dark Palette (Deep Space Theme) */
-  --color-bg-primary: #030014;
-  --color-bg-secondary: rgba(255, 255, 255, 0.02);
+  /* Premium Dark Palette (Warm Charcoal Theme) */
+  --color-bg-primary: #060606;
+  --color-bg-secondary: rgba(255, 255, 255, 0.01);
   
   /* Soft Glowing Accent Colors */
-  --color-neon-blue: #3b82f6;
-  --color-neon-purple: #8b5cf6;
-  --color-neon-cyan: #06b6d4;
+  --color-neon-blue: #c5a880; /* Mapped to Gold */
+  --color-neon-purple: #9c978e; /* Mapped to Bronze/Beige */
+  --color-neon-cyan: #d4af37; /* Mapped to Bright Gold */
   
   /* Dark Mode Text and Surfaces */
-  --color-white-100: #f8fafc; /* High contrast text (slate-50) */
-  --color-white-50: #94a3b8;  /* Medium contrast text (slate-400) */
-  --color-black-50: rgba(255, 255, 255, 0.06); /* Subtle borders */
-  --color-black-100: rgba(15, 23, 42, 0.6);   /* Glass card fill */
-  --color-black-200: rgba(255, 255, 255, 0.08); /* Hover highlight borders */
+  --color-white-100: #f5f2eb; /* Creamy high contrast text */
+  --color-white-50: #a6a198;  /* Warm medium contrast text */
+  --color-black-50: rgba(197, 168, 128, 0.04); /* Subtle gold/beige borders */
+  --color-black-100: rgba(18, 18, 18, 0.6);   /* Dark warm glass card fill */
+  --color-black-200: rgba(197, 168, 128, 0.08); /* Hover highlight borders */
   
-  --color-blue-50: #64748b;
-  --color-blue-100: rgba(30, 41, 59, 0.5); /* Form input background */
+  --color-blue-50: #9c978e;
+  --color-blue-100: rgba(20, 20, 20, 0.6); /* Form input background */
+}
+
+.font-serif {
+  font-family: var(--font-serif);
 }
 
 html,
