@@ -15,6 +15,18 @@
   --card-border-hover: rgba(197, 168, 128, 0.15);
   --input-bg: rgba(20, 20, 20, 0.6);
   --grid-color: rgba(255, 255, 255, 0.012);
+
+  /* Navbar & Header Theme Variables */
+  --navbar-bg-scrolled: rgba(12, 12, 12, 0.75);
+  --navbar-bg-not-scrolled: rgba(12, 12, 12, 0.4);
+  --navbar-border-scrolled: rgba(197, 168, 128, 0.12);
+  --navbar-border-not-scrolled: rgba(255, 255, 255, 0.03);
+  --navbar-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  --dot-shadow: rgba(197, 168, 128, 0.8);
+  --gold-rgb: 197, 168, 128;
+  --contact-hover-bg: linear-gradient(135deg, var(--gold) 0%, var(--cream) 50%, var(--bronze) 100%);
+  --contact-hover-text: #060606;
+  --contact-hover-shadow: rgba(197, 168, 128, 0.15);
 }
 
 .light {
@@ -31,6 +43,18 @@
   --card-border-hover: rgba(138, 108, 66, 0.2);
   --input-bg: rgba(245, 240, 230, 0.6);
   --grid-color: rgba(138, 108, 66, 0.04);
+
+  /* Navbar & Header Theme Variables */
+  --navbar-bg-scrolled: rgba(251, 249, 244, 0.85);
+  --navbar-bg-not-scrolled: rgba(251, 249, 244, 0.45);
+  --navbar-border-scrolled: rgba(138, 108, 66, 0.12);
+  --navbar-border-not-scrolled: rgba(138, 108, 66, 0.04);
+  --navbar-shadow: 0 8px 32px 0 rgba(138, 108, 66, 0.08);
+  --dot-shadow: rgba(138, 108, 66, 0.8);
+  --gold-rgb: 138, 108, 66;
+  --contact-hover-bg: linear-gradient(135deg, var(--gold) 0%, var(--bronze) 100%);
+  --contact-hover-text: #fbf9f4;
+  --contact-hover-shadow: rgba(138, 108, 66, 0.15);
 }
 
 @theme {
@@ -218,23 +242,23 @@ section {
 
     &.scrolled {
       @apply top-4;
-      background: rgba(12, 12, 12, 0.75);
+      background: var(--navbar-bg-scrolled);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border: 1px solid rgba(197, 168, 128, 0.12);
+      border: 1px solid var(--navbar-border-scrolled);
       border-radius: 9999px;
       padding-top: 12px;
       padding-bottom: 12px;
       padding-left: 24px;
       padding-right: 24px;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+      box-shadow: var(--navbar-shadow);
     }
 
     &.not-scrolled {
       @apply md:top-8 top-4;
-      background: rgba(12, 12, 12, 0.4);
+      background: var(--navbar-bg-not-scrolled);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--navbar-border-not-scrolled);
       border-radius: 9999px;
       padding-top: 12px;
       padding-bottom: 12px;
@@ -271,20 +295,21 @@ section {
     }
 
     .logo-divider {
-      @apply w-px h-4 bg-white/20 mx-2 sm:mx-3 self-center inline-block;
+      @apply w-px h-4 bg-charcoal/30 mx-2 sm:mx-3 self-center inline-block;
     }
 
     .logo-badge {
-      @apply inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] sm:text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 backdrop-blur-sm transition-all duration-300 tracking-wider uppercase;
+      @apply inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] sm:text-xs font-semibold bg-gold/10 text-gold border border-gold/20 backdrop-blur-sm transition-all duration-300 tracking-wider uppercase;
     }
 
     .logo-wrapper:hover .logo-badge {
-      @apply bg-indigo-500/20 text-indigo-300 border-indigo-500/30 shadow-[0_0_15px_rgba(99,102,241,0.2)];
+      @apply bg-gold/20 text-gold border-gold/30;
+      box-shadow: 0 0 15px rgba(var(--gold-rgb), 0.2);
     }
 
     .logo-glow {
       @apply absolute inset-0 -z-10;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(var(--gold-rgb), 0.15) 0%, transparent 70%);
       opacity: 0;
       transition: opacity 0.3s ease;
       filter: blur(20px);
@@ -368,7 +393,7 @@ section {
           @apply relative;
 
           span {
-            @apply transition-colors duration-300 hover:text-white;
+            @apply transition-colors duration-300 hover:text-cream;
           }
 
           .underline {
@@ -377,8 +402,44 @@ section {
         }
       }
     }
+  }
 
+  /* Theme-adaptive contact button */
+  .contact-btn {
+    @apply hidden lg:flex items-center gap-2 relative overflow-hidden rounded-full border border-card-border bg-card-bg backdrop-blur-sm shadow-sm transition-all duration-300 cursor-pointer px-6 py-2.5;
+    
+    &:hover {
+      border-color: rgba(var(--gold-rgb), 0.3);
+      box-shadow: 0 0 20px var(--contact-hover-shadow);
+    }
+  }
 
+  .contact-btn-bg {
+    @apply absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500;
+    background: var(--contact-hover-bg);
+  }
+
+  .contact-btn-text {
+    @apply relative z-10 text-sm font-semibold transition-colors duration-300;
+    color: var(--cream);
+    
+    .group:hover & {
+      color: var(--contact-hover-text);
+    }
+  }
+
+  .contact-btn-svg {
+    @apply w-4 h-4 relative z-10 stroke-current transition-all duration-300 group-hover:translate-x-0.5;
+    color: var(--charcoal);
+    
+    .group:hover & {
+      color: var(--contact-hover-text);
+    }
+  }
+
+  .nav-dot {
+    @apply absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[var(--gold)] scale-0 group-hover:scale-100 transition-transform duration-300;
+    box-shadow: 0 0 10px var(--dot-shadow);
   }
 
   .app-showcase {

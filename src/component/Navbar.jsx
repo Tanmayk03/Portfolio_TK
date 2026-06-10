@@ -42,8 +42,8 @@ const NavBar = ({ theme, setTheme }) => {
             {navLinks.map(({ link, name }) => (
               <li key={name} className="group relative">
                 <a href={link} className="relative text-charcoal font-medium py-2 px-1 flex items-center">
-                  <span className="transition-colors hover:text-white duration-300">{name}</span>
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[var(--gold)] scale-0 group-hover:scale-100 transition-transform duration-300 shadow-[0_0_10px_rgba(197,168,128,0.8)]" />
+                  <span className="transition-colors hover:text-cream duration-300">{name}</span>
+                  <span className="nav-dot" />
                 </a>
               </li>
             ))}
@@ -54,7 +54,7 @@ const NavBar = ({ theme, setTheme }) => {
           {/* Theme Toggle Button */}
           <button
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            className="flex items-center justify-center w-9 h-9 rounded-full border border-card-border bg-card-bg hover:border-gold/30 hover:bg-white/[0.05] transition-all duration-300 cursor-pointer text-gold shadow-sm"
+            className="flex items-center justify-center w-9 h-9 rounded-full border border-card-border bg-card-bg hover:border-gold/30 hover:bg-gold/10 transition-all duration-300 cursor-pointer text-gold shadow-sm"
             aria-label="Toggle theme"
           >
             {theme === "light" ? (
@@ -68,19 +68,18 @@ const NavBar = ({ theme, setTheme }) => {
             )}
           </button>
 
-          <a href="#contact" className="group hidden lg:flex items-center gap-2 relative overflow-hidden rounded-full border border-card-border bg-card-bg backdrop-blur-sm shadow-sm transition-all duration-300 hover:border-gold/30 hover:shadow-[0_0_20px_rgba(197,168,128,0.15)] hover:text-white cursor-pointer px-6 py-2.5">
+          <a href="#contact" className="group contact-btn">
             {/* Hover gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-gold via-cream to-bronze opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="contact-btn-bg" />
             
-            <span className="relative z-10 text-sm font-semibold text-cream group-hover:text-black transition-colors duration-300">
+            <span className="contact-btn-text">
               Contact me
             </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-4 h-4 relative z-10 stroke-slate-300 group-hover:stroke-black group-hover:translate-x-0.5 transition-all duration-300"
+              className="contact-btn-svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke="currentColor"
               strokeWidth={2}
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -94,14 +93,14 @@ const NavBar = ({ theme, setTheme }) => {
             aria-label="Toggle menu"
           >
             {/* Button glass background */}
-            <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-card-border rounded-lg" />
+            <div className="absolute inset-0 bg-card-bg backdrop-blur-sm border border-card-border rounded-lg" />
             
             {mobileMenuOpen ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 relative z-10 stroke-slate-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 relative z-10 stroke-current" fill="none" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 relative z-10 stroke-slate-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 relative z-10 stroke-current" fill="none" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
@@ -135,7 +134,7 @@ const NavBar = ({ theme, setTheme }) => {
               className="relative mt-4 py-3 px-5 rounded-lg text-center font-semibold overflow-hidden group"
             >
               {/* Glass background */}
-              <div className="absolute inset-0 bg-white/5 border border-card-border rounded-lg" />
+              <div className="absolute inset-0 bg-card-bg border border-card-border rounded-lg" />
               
               {/* Hover gradient effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-[var(--gold)] to-[var(--bronze)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
