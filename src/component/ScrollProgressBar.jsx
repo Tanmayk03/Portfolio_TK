@@ -34,7 +34,7 @@ const ScrollProgressBar = () => {
       className="fixed top-0 left-0 h-[3px] w-full z-[200] origin-left scale-x-0"
       style={{
         background:
-          "linear-gradient(90deg, #06b6d4 0%, #8b5cf6 50%, #3b82f6 100%)",
+          "linear-gradient(90deg, var(--gold) 0%, var(--bright-gold) 50%, var(--bronze) 100%)",
       }}
     />
   );

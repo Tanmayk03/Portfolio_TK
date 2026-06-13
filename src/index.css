@@ -283,15 +283,10 @@ section {
     }
 
     .logo-name {
-      @apply relative;
-      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: gradient-shift 4s ease infinite;
+      @apply relative flex items-center;
       position: relative;
       font-weight: 600;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .logo-divider {
@@ -327,8 +322,12 @@ section {
 
     .particle {
       @apply absolute w-1 h-1 rounded-full;
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+      background: linear-gradient(135deg, var(--gold), var(--bright-gold), var(--bronze));
       opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .logo-wrapper:hover .particle {
       animation: particle-float 3s ease-in-out infinite;
       animation-delay: var(--delay);
     }
@@ -341,7 +340,11 @@ section {
     .particle:nth-child(6) { top: 80%; left: 40%; }
 
     .logo-wrapper:hover .logo-name {
-      animation: glitch 0.3s ease-in-out;
+      transform: scale(1.02);
+    }
+
+    .logo-wrapper:hover .logo-name span:last-child {
+      letter-spacing: 0.15em;
     }
 
     @keyframes gradient-shift {

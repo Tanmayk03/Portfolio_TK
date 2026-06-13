@@ -29,12 +29,23 @@ const NavBar = ({ theme, setTheme }) => {
     <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
       <div className="inner relative z-10">
         <div className="logo-wrapper">
-          <a href="#hero" className="logo-text text-cream flex items-center" onClick={closeMobileMenu}>
-            <span className="logo-name">Tanmay Kapoor</span>
+          <a href="#hero" className="logo-text flex items-center" onClick={closeMobileMenu}>
+            <span className="logo-name">
+              <span className="font-serif italic font-light tracking-wide mr-1.5 text-cream transition-colors duration-500">Tanmay</span>
+              <span className="font-heading font-extrabold tracking-wider uppercase text-base sm:text-lg bg-gradient-to-r from-gold via-bright-gold to-bronze bg-clip-text text-transparent transition-all duration-500">Kapoor</span>
+            </span>
             <span className="logo-divider hidden sm:inline-block"></span>
             <span className="logo-badge hidden sm:inline-flex">Developer</span>
           </a>
           <div className="logo-glow" />
+          <div className="logo-particles">
+            <span className="particle" style={{ "--delay": "0s" }} />
+            <span className="particle" style={{ "--delay": "0.5s" }} />
+            <span className="particle" style={{ "--delay": "1s" }} />
+            <span className="particle" style={{ "--delay": "1.5s" }} />
+            <span className="particle" style={{ "--delay": "2s" }} />
+            <span className="particle" style={{ "--delay": "2.5s" }} />
+          </div>
         </div>
 
         <nav className="desktop">
