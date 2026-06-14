@@ -1,6 +1,102 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
+@property --bg-primary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #060606;
+}
+@property --bg-secondary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(255, 255, 255, 0.01);
+}
+@property --gold {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #c5a880;
+}
+@property --bronze {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #9c978e;
+}
+@property --bright-gold {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #d4af37;
+}
+@property --cream {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f5f2eb;
+}
+@property --charcoal {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #a6a198;
+}
+@property --light-beige {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e6dfd5;
+}
+@property --card-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(18, 18, 18, 0.6);
+}
+@property --card-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(197, 168, 128, 0.04);
+}
+@property --card-border-hover {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(197, 168, 128, 0.15);
+}
+@property --input-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(20, 20, 20, 0.6);
+}
+@property --grid-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(255, 255, 255, 0.012);
+}
+@property --navbar-bg-scrolled {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(12, 12, 12, 0.75);
+}
+@property --navbar-bg-not-scrolled {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(12, 12, 12, 0.4);
+}
+@property --navbar-border-scrolled {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(197, 168, 128, 0.12);
+}
+@property --navbar-border-not-scrolled {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(255, 255, 255, 0.03);
+}
+@property --dot-shadow {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(197, 168, 128, 0.8);
+}
+@property --contact-hover-shadow {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(197, 168, 128, 0.15);
+}
+
 :root {
   --bg-primary: #060606;
   --bg-secondary: rgba(255, 255, 255, 0.01);
@@ -27,6 +123,26 @@
   --contact-hover-bg: linear-gradient(135deg, var(--gold) 0%, var(--cream) 50%, var(--bronze) 100%);
   --contact-hover-text: #060606;
   --contact-hover-shadow: rgba(197, 168, 128, 0.15);
+
+  transition: --bg-primary 0.5s ease,
+              --bg-secondary 0.5s ease,
+              --gold 0.5s ease,
+              --bronze 0.5s ease,
+              --bright-gold 0.5s ease,
+              --cream 0.5s ease,
+              --charcoal 0.5s ease,
+              --light-beige 0.5s ease,
+              --card-bg 0.5s ease,
+              --card-border 0.5s ease,
+              --card-border-hover 0.5s ease,
+              --input-bg 0.5s ease,
+              --grid-color 0.5s ease,
+              --navbar-bg-scrolled 0.5s ease,
+              --navbar-bg-not-scrolled 0.5s ease,
+              --navbar-border-scrolled 0.5s ease,
+              --navbar-border-not-scrolled 0.5s ease,
+              --dot-shadow 0.5s ease,
+              --contact-hover-shadow 0.5s ease;
 }
 
 .light {
