@@ -12,20 +12,20 @@ const CertificatesSection = () => {
 
   const certificatesData = [
     {
-      title: "Oracle Cloud Infrastructure 2025 Certified Data Science Professional",
-      issuer: "Oracle",
-      date: "Completed October 2025 | Valid till October 2027",
-      duration: "~8 weeks",
-      description: "Gained hands-on experience in Oracle AI & Data Science tools, cloud analytics, and ML model deployment.",
-      link: "https://www.linkedin.com/redir/redirect/?url=https%3A%2F%2Fbrm-certview.oracle.com%2Fords%2Fcertview%2Fecertificate%3Fssn%3DOC7384436%26trackId%3DOCI25DSOCP%26key%3D7456b31d5cc9d62aea3e3193a8aea25342b0ad96&urlhash=66MT&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BQ3o7zEuwSO%2BUTn%2FcEtMyRg%3D%3D",
-    },
-    {
       title: "MongoDB Certified Associate Developer",
       issuer: "MongoDB",
       date: "Completed June 2026 | Validity: Lifetime",
       duration: "~4 weeks",
       description: "Demonstrated skills in designing, building, and running applications on MongoDB, covering CRUD operations, data modeling, indexes, and Node.js driver usage.",
       link: "https://www.credly.com/badges/fe93e2ef-881c-4cb5-9a55-92e51a472666/linked_in_profile",
+    },
+    {
+      title: "Oracle Cloud Infrastructure 2025 Certified Data Science Professional",
+      issuer: "Oracle",
+      date: "Completed October 2025 | Valid till October 2027",
+      duration: "~8 weeks",
+      description: "Gained hands-on experience in Oracle AI & Data Science tools, cloud analytics, and ML model deployment.",
+      link: "https://www.linkedin.com/redir/redirect/?url=https%3A%2F%2Fbrm-certview.oracle.com%2Fords%2Fcertview%2Fecertificate%3Fssn%3DOC7384436%26trackId%3DOCI25DSOCP%26key%3D7456b31d5cc9d62aea3e3193a8aea25342b0ad96&urlhash=66MT&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BQ3o7zEuwSO%2BUTn%2FcEtMyRg%3D%3D",
     },
     {
       title: "Career Essentials in Generative AI",
