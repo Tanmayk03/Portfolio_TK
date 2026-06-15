@@ -42,14 +42,15 @@ const Hero = ({ theme }) => {
                   {words.map((word, index) => (
                     <span
                       key={`${word.text}-${index}`}
-                      className="flex items-center gap-2 md:gap-3 h-[40px] md:h-[72px]"
+                      className="flex items-center gap-2 md:gap-3"
+                      style={{ height: '1.15em' }}
                     >
                       <img
                         src={word.imgPath}
                         alt=""
-                        className="xl:w-10 xl:h-10 md:w-8 md:h-8 w-6 h-6 object-contain rounded-full bg-card-bg border border-card-border p-1"
+                        className="w-[0.7em] h-[0.7em] object-contain rounded-full bg-card-bg border border-card-border p-1"
                       />
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-cream to-bronze transition-colors duration-500">
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[var(--bright-gold)] to-bronze transition-colors duration-500">
                         {word.text}
                       </span>
                     </span>
@@ -88,8 +89,10 @@ const Hero = ({ theme }) => {
         </header>
 
         {/* Right Section */}
-        <figure className="block w-full">
-          <div className="hero-3d-layout pointer-events-none xl:pointer-events-auto">
+        <figure className="block w-full relative flex items-center justify-center">
+          {/* Subtle background glow behind the 3D canvas to make it blend soft and premium */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] h-[85%] rounded-full bg-[var(--gold)]/10 blur-[80px] pointer-events-none z-0" />
+          <div className="hero-3d-layout pointer-events-none xl:pointer-events-auto relative z-10">
             <HeroExperience theme={theme} />
           </div>
         </figure>

@@ -96,6 +96,21 @@
   inherits: true;
   initial-value: rgba(197, 168, 128, 0.15);
 }
+@property --orb-1-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(245, 158, 11, 0.05);
+}
+@property --orb-2-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(202, 138, 4, 0.04);
+}
+@property --orb-3-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(217, 119, 6, 0.03);
+}
 
 :root {
   --bg-primary: #060606;
@@ -111,6 +126,11 @@
   --card-border-hover: rgba(197, 168, 128, 0.15);
   --input-bg: rgba(20, 20, 20, 0.6);
   --grid-color: rgba(255, 255, 255, 0.012);
+
+  /* Glowing background orbs */
+  --orb-1-color: rgba(245, 158, 11, 0.05);
+  --orb-2-color: rgba(202, 138, 4, 0.04);
+  --orb-3-color: rgba(217, 119, 6, 0.03);
 
   /* Navbar & Header Theme Variables */
   --navbar-bg-scrolled: rgba(12, 12, 12, 0.75);
@@ -137,6 +157,9 @@
               --card-border-hover 0.5s ease,
               --input-bg 0.5s ease,
               --grid-color 0.5s ease,
+              --orb-1-color 0.5s ease,
+              --orb-2-color 0.5s ease,
+              --orb-3-color 0.5s ease,
               --navbar-bg-scrolled 0.5s ease,
               --navbar-bg-not-scrolled 0.5s ease,
               --navbar-border-scrolled 0.5s ease,
@@ -158,7 +181,12 @@
   --card-border: rgba(138, 108, 66, 0.08);
   --card-border-hover: rgba(138, 108, 66, 0.2);
   --input-bg: rgba(245, 240, 230, 0.6);
-  --grid-color: rgba(138, 108, 66, 0.04);
+  --grid-color: rgba(138, 108, 66, 0.07);
+
+  /* Warmer, more visible glowing background orbs to remove the "empty" clinical feel in light mode */
+  --orb-1-color: rgba(220, 150, 80, 0.15);
+  --orb-2-color: rgba(200, 160, 110, 0.10);
+  --orb-3-color: rgba(230, 180, 130, 0.08);
 
   /* Navbar & Header Theme Variables */
   --navbar-bg-scrolled: rgba(251, 249, 244, 0.85);
@@ -337,11 +365,18 @@ section {
   .hero-text {
     @apply flex flex-col justify-center md:text-[60px] text-[30px] font-semibold relative z-10 pointer-events-none;
     img {
-      @apply size-8 md:size-10 object-contain;
+      @apply object-contain;
+      filter: invert(1) brightness(1.5);
+      transition: filter 0.5s ease;
     }
     .slide {
-      @apply relative inline-flex items-center overflow-hidden h-[40px] md:h-[72px] align-middle pt-0 px-2 md:px-4 md:translate-y-1 translate-y-0 pointer-events-auto;
+      height: 1.15em;
+      @apply relative inline-flex items-center overflow-hidden align-middle pt-0 px-2 md:px-4 translate-y-0 pointer-events-auto;
     }
+  }
+
+  .light .hero-text img {
+    filter: none;
   }
 
   .hero-badge {
@@ -758,7 +793,7 @@ section {
 
 @keyframes wordSlider {
   0% {
-    transform: translateY(0.5%);
+    transform: translateY(0%);
   }
   12.5% {
     transform: translateY(-12.5%);
