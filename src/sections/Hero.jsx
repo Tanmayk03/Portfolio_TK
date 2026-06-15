@@ -89,11 +89,13 @@ const Hero = ({ theme }) => {
         </header>
 
         {/* Right Section */}
-        <figure className="block w-full relative flex items-center justify-center">
-          {/* Subtle background glow behind the 3D canvas to make it blend soft and premium */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] h-[85%] rounded-full bg-[var(--gold)]/10 blur-[80px] pointer-events-none z-0" />
-          <div className="hero-3d-layout pointer-events-none xl:pointer-events-auto relative z-10">
-            <HeroExperience theme={theme} />
+        <figure className="block w-full">
+          <div className="hero-3d-layout pointer-events-none xl:pointer-events-auto">
+            {/* Subtle background glow behind the 3D canvas to make it blend soft and premium */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] rounded-full bg-[var(--gold)]/8 blur-[80px] pointer-events-none z-0" />
+            <div className="relative z-10 w-full h-full">
+              <HeroExperience theme={theme} />
+            </div>
           </div>
         </figure>
       </div>
