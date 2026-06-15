@@ -29,7 +29,7 @@ export const counterItems = [
     prefix: ""
   },
   { 
-    value: 9, 
+    value: 10, 
     suffix: "+", 
     label: "Certifications",
     prefix: ""
