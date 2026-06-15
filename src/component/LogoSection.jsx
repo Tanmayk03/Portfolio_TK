@@ -11,9 +11,9 @@ const LogoSection = () => {
   ];
 
   return (
-    <div className="w-full py-10 border-y border-white/[0.03] bg-white/[0.005] backdrop-blur-sm relative z-10 overflow-hidden">
+    <div className="w-full py-10 border-y border-card-border bg-card-bg/5 backdrop-blur-sm relative z-10 overflow-hidden">
       <div className="max-w-6xl mx-auto px-5 md:px-20">
-        <div className="flex flex-wrap items-center justify-center md:justify-between gap-x-12 gap-y-6 opacity-30 hover:opacity-60 transition-opacity duration-500">
+        <div className="flex flex-wrap items-center justify-center md:justify-between gap-x-12 gap-y-6 opacity-45 hover:opacity-80 transition-opacity duration-500">
           {logos.map((logo) => (
             <span
               key={logo}

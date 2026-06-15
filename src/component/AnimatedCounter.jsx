@@ -101,10 +101,10 @@ const AnimatedCounter = () => {
 
   return (
     <div id="counter" ref={counterRef} className="section-padding relative">
-      {/* Cool animated background matching purple/indigo theme */}
+      {/* Cool animated background matching gold theme */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/4 w-72 h-72 bg-gold/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-bronze/5 rounded-full blur-3xl" />
       </div>
 
       <div className="padding-x-lg relative z-10">
@@ -113,33 +113,33 @@ const AnimatedCounter = () => {
             <div
               key={index}
               ref={(el) => el && (countersRef.current[index] = el)}
-              className="relative rounded-2xl p-5 md:p-8 flex flex-col justify-between overflow-hidden group cursor-pointer border border-card-border hover:border-violet-500/20 bg-[#0e0e10]/40 backdrop-blur-md shadow-sm hover:shadow-xl hover:shadow-violet-900/5 transition-all duration-500 h-full min-h-[130px] md:min-h-[170px]"
+              className="relative rounded-2xl p-5 md:p-8 flex flex-col justify-between overflow-hidden group cursor-pointer border border-card-border hover:border-gold/30 bg-card-bg backdrop-blur-md shadow-sm hover:shadow-xl hover:shadow-gold/5 transition-all duration-500 h-full min-h-[130px] md:min-h-[170px]"
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
             >
               {/* Animated gradient on hover */}
               <div 
-                className={`absolute inset-0 bg-gradient-to-br from-purple-500/10 via-indigo-500/10 to-blue-500/10 rounded-2xl opacity-0 transition-opacity duration-500 ${
+                className={`absolute inset-0 bg-gradient-to-br from-gold/10 via-bronze/10 to-transparent rounded-2xl opacity-0 transition-opacity duration-500 ${
                   hoveredIndex === index ? "opacity-100" : ""
                 }`}
               />
               
               {/* Glow effect on hover */}
               <div 
-                className={`absolute inset-0 bg-gradient-to-br from-purple-400/10 via-indigo-400/10 to-blue-400/10 rounded-2xl blur-xl transition-opacity duration-500 ${
+                className={`absolute inset-0 bg-gradient-to-br from-gold/5 via-bronze/5 to-transparent rounded-2xl blur-xl transition-opacity duration-500 ${
                   hoveredIndex === index ? "opacity-100" : "opacity-0"
                 }`}
               />
 
               <div className="relative z-10 flex flex-col justify-between h-full">
-                <div className="counter-number text-cream text-3xl md:text-5xl font-bold mb-2 md:mb-4 whitespace-nowrap">
+                <div className="counter-number bg-gradient-to-r from-gold to-bright-gold bg-clip-text text-transparent text-3xl md:text-5xl font-bold mb-2 md:mb-4 whitespace-nowrap">
                   {item.suffix === "" && item.label.includes("Internship") 
                     ? item.value 
                     : item.suffix.includes("rd Year") || item.suffix.includes("st") || item.suffix.includes("nd") || item.suffix.includes("th")
                     ? `${item.value}${item.suffix}`
                     : `0 ${item.suffix}`}
                 </div>
-                <div className="text-charcoal text-xs md:text-base leading-snug font-medium">{item.label}</div>
+                <div className="text-charcoal text-xs md:text-base leading-snug font-medium transition-colors duration-500">{item.label}</div>
               </div>
             </div>
           ))}
