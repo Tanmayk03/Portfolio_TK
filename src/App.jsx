@@ -14,6 +14,7 @@ import ContactSection from "./sections/ContactSection.jsx"
 import Footer from "./component/Footer.jsx"
 import GlobalBackground from "./component/GlobalBackground.jsx"
 import ScrollProgressBar from "./component/ScrollProgressBar.jsx"
+import ScrollToTop from "./component/ScrollToTop.jsx"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -93,6 +94,7 @@ const App = () => {
       <CertificatesSection />
       <ContactSection />
       <Footer />
+      <ScrollToTop />
     </>
   )
 }
