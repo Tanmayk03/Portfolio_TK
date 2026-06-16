@@ -267,8 +267,8 @@ export const projectsData = [
       "Crafted a responsive frontend with optimized state management and seamless API integration, paired with a scalable data layer and engagement analytics to monitor adoption post-deployment."
     ],
     technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Vercel"],
-    liveLink: "https://tanmayk.tech", // Placeholder/Resume Link
-    githubLink: "https://github.com/Tanmayk03",
+    liveLink: "https://gatebuddy.me", // Placeholder/Resume Link
+    githubLink: "https://github.com/Tanmayk03/GateBuddy",
     image: "/images/gatebuddy.png",
     featured: true
   },
@@ -280,8 +280,8 @@ export const projectsData = [
       "Delivered an end-to-end application with React.js and MongoDB, achieving fluid UI interactions and structured data persistence across all payment flows."
     ],
     technologies: ["React", "Node.js", "Express", "MongoDB"],
-    liveLink: "https://tanmayk.tech",
-    githubLink: "https://github.com/Tanmayk03",
+    liveLink: "https://scanandpay-omega.vercel.app/",
+    githubLink: "https://github.com/Tanmayk03/Scan_AND_Pay",
     image: "/images/scan_pay.png",
     featured: false
   },
@@ -293,8 +293,8 @@ export const projectsData = [
       "Shipped a performant UI with React.js, Redux, and Tailwind CSS, enriched with AI-powered product recommendations and live shipment status updates."
     ],
     technologies: ["React", "Node.js", "Express", "MongoDB", "Redux", "Tailwind CSS", "Vite"],
-    liveLink: "https://tanmayk.tech",
-    githubLink: "https://github.com/Tanmayk03",
+    liveLink: "https://hyperlocal-delivery-application-d5vp.vercel.app/",
+    githubLink: "https://github.com/Tanmayk03/Hyperlocal-Delivery-Application-",
     image: "/images/hyperlocal.png",
     featured: false
   },
@@ -306,8 +306,8 @@ export const projectsData = [
       "Designed an intuitive React.js interface with drag-and-drop board management, real-time progress visualization, and frictionless AI-assisted task creation."
     ],
     technologies: ["JavaScript", "React", "Node.js", "AI APIs"],
-    liveLink: "https://tanmayk.tech",
-    githubLink: "https://github.com/Tanmayk03",
+    liveLink: "https://kan-ban-ai-psi.vercel.app/",
+    githubLink: "https://github.com/Tanmayk03/KanBan.AI",
     image: "/images/kanban_ai.png",
     featured: false
   }
