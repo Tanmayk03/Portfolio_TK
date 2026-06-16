@@ -1,13 +1,15 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { projectsData } from "../constants";
+import ProjectModal from "../component/ProjectModal";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AppShowcase = () => {
   const sectionRef = useRef(null);
+  const [activeProject, setActiveProject] = useState(null);
 
   useGSAP(() => {
     // Animation for the main section
@@ -57,7 +59,10 @@ const AppShowcase = () => {
         <div className="showcaselayout">
           {/* Flagship Featured Project Card (Top) */}
           {featuredProject && (
-            <div className="first-project-wrapper animate-card relative group bg-card-bg border border-card-border hover:border-gold/20 p-6 md:p-8 rounded-2xl transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-gold/5">
+            <div 
+              onClick={() => setActiveProject(featuredProject)}
+              className="first-project-wrapper animate-card relative group bg-card-bg border border-card-border hover:border-gold/20 p-6 md:p-8 rounded-2xl transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-gold/5"
+            >
               <div className="image-wrapper shadow-2xl rounded-xl border border-card-border">
                 <img
                   src={featuredProject.image}
@@ -99,6 +104,7 @@ const AppShowcase = () => {
                     href={featuredProject.githubLink}
                     target="_blank"
                     rel="noreferrer"
+                    onClick={(e) => e.stopPropagation()}
                     className="flex items-center gap-2 text-sm text-charcoal hover:text-cream transition-all bg-card-bg border border-card-border hover:border-gold/20 px-4 py-2.5 rounded-lg"
                   >
                     <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -110,6 +116,7 @@ const AppShowcase = () => {
                     href={featuredProject.liveLink}
                     target="_blank"
                     rel="noreferrer"
+                    onClick={(e) => e.stopPropagation()}
                     className="flex items-center gap-2 text-sm text-bg-primary font-semibold bg-gradient-to-r from-gold to-bronze hover:opacity-90 transition-all px-4 py-2.5 rounded-lg shadow-md shadow-gold/10"
                   >
                     <svg
@@ -135,7 +142,11 @@ const AppShowcase = () => {
           {/* Grid of Remaining 3 Projects */}
           <div className="projects-grid">
             {gridProjects.map((project) => (
-              <div key={project.title} className="project-card animate-card relative group bg-card-bg border border-card-border hover:border-gold/20 p-6 rounded-2xl transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-gold/5 flex flex-col justify-between">
+              <div 
+                key={project.title} 
+                onClick={() => setActiveProject(project)}
+                className="project-card animate-card relative group bg-card-bg border border-card-border hover:border-gold/20 p-6 rounded-2xl transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-gold/5 flex flex-col justify-between"
+              >
                 <div>
                   <div className="image-wrapper shadow-lg border border-card-border rounded-xl overflow-hidden mb-5">
                     <img
@@ -167,6 +178,7 @@ const AppShowcase = () => {
                       href={project.githubLink}
                       target="_blank"
                       rel="noreferrer"
+                      onClick={(e) => e.stopPropagation()}
                       className="flex items-center gap-1.5 text-xs text-charcoal hover:text-cream transition-colors duration-300"
                     >
                       <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -178,6 +190,7 @@ const AppShowcase = () => {
                       href={project.liveLink}
                       target="_blank"
                       rel="noreferrer"
+                      onClick={(e) => e.stopPropagation()}
                       className="flex items-center gap-1 text-xs text-gold hover:text-bright-gold transition-colors duration-300"
                     >
                       Live Demo
@@ -202,6 +215,7 @@ const AppShowcase = () => {
           </div>
         </div>
       </div>
+      <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
     </div>
   );
 };
