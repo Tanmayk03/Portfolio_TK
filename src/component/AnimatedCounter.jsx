@@ -35,7 +35,7 @@ const AnimatedCounter = () => {
       } else if (item.suffix === "" && item.label.includes("Internship")) {
         // For internship - just show the number without animation or animate to 1
         numberElement.textContent = `${item.value}`;
-      } else if (item.suffix.includes("rd Year") || item.suffix.includes("st") || item.suffix.includes("nd") || item.suffix.includes("th")) {
+      } else if (item.suffix.includes("Year") || item.suffix.includes("Final") || item.suffix.includes("st") || item.suffix.includes("nd") || item.suffix.includes("rd") || item.suffix.includes("th")) {
         gsap.set(numberElement, { innerText: "0" });
         gsap.to(numberElement, {
           innerText: item.value,
@@ -135,7 +135,7 @@ const AnimatedCounter = () => {
                 <div className="counter-number bg-gradient-to-r from-gold to-bright-gold bg-clip-text text-transparent text-3xl md:text-5xl font-bold mb-2 md:mb-4 whitespace-nowrap">
                   {item.suffix === "" && item.label.includes("Internship") 
                     ? item.value 
-                    : item.suffix.includes("rd Year") || item.suffix.includes("st") || item.suffix.includes("nd") || item.suffix.includes("th")
+                    : item.suffix.includes("Year") || item.suffix.includes("Final") || item.suffix.includes("st") || item.suffix.includes("nd") || item.suffix.includes("rd") || item.suffix.includes("th")
                     ? `${item.value}${item.suffix}`
                     : `0 ${item.suffix}`}
                 </div>

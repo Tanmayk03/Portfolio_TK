@@ -17,9 +17,9 @@ export const counterItems = [
     prefix: ""
   },
   { 
-    value: 3, 
-    suffix: "rd Year", 
-    label: "B.Tech (Data Science)",
+    value: 4, 
+    suffix: "th", 
+    label: "Final Year – B.Tech (Data Science)",
     prefix: ""
   },
   { 
