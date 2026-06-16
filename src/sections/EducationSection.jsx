@@ -15,7 +15,7 @@ const EducationSection = () => {
       institution: "SRM University - Delhi NCR Campus",
       degree: "B.Tech in Computer Science (Data Science)",
       period: "August 2023 - May 2027",
-      gpa: "8.46 CGPA",
+      gpa: "8.53 CGPA",
       status: "Pursuing",
     },
     {

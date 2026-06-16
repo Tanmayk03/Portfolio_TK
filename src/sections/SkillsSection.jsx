@@ -139,8 +139,14 @@ const SkillsSection = () => {
     <section id="skills" ref={sectionRef} className="section-padding relative">
       {/* Decorative dark theme background glow orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-600/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-amber-600/5 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div 
+          className="absolute top-20 left-10 w-72 h-72 rounded-full" 
+          style={{ background: 'radial-gradient(circle, rgba(202, 138, 4, 0.05) 0%, transparent 70%)' }}
+        />
+        <div 
+          className="absolute bottom-20 right-10 w-96 h-96 rounded-full" 
+          style={{ background: 'radial-gradient(circle, rgba(217, 119, 6, 0.05) 0%, transparent 70%)' }}
+        />
       </div>
       
       <div className="padding-x-lg relative z-10 max-w-6xl mx-auto">

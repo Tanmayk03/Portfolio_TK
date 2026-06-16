@@ -36,7 +36,7 @@ const Particles = ({ count = 200, theme }) => {
         />
       </bufferGeometry>
       <pointsMaterial
-        color={theme === "light" ? "#8a6c42" : "var(--gold)"}
+        color={theme === "light" ? "#8a6c42" : "#c5a880"}
         size={0.06}
         transparent
         opacity={0.6}

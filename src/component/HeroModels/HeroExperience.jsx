@@ -31,8 +31,8 @@ const HeroExperience = ({ theme }) => {
       />
 
       <Suspense fallback={null}>
-        <HeroLights theme={theme} />
-        <Particles count={500} theme={theme} />
+        <HeroLights theme={theme} isMobile={isMobile} isTablet={isTablet} />
+        <Particles count={isMobile ? 50 : isTablet ? 150 : 500} theme={theme} />
         <group
           scale={isMobile ? 0.7 : 1}
           position={[0, -3.5, 0]}
