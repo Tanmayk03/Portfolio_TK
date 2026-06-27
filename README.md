@@ -1,36 +1,42 @@
 # Portfolio_TK
 
-Welcome to the **Portfolio_TK** repository!
+Welcome to **Portfolio_TK** — the source code for [Tanmay Kapoor's Portfolio Website](https://tanmaykapoorportfolio.vercel.app).
 
-This project serves as the codebase for [Tanmay Kapoor's Portfolio Website](https://tanmaykapoorportfolio.vercel.app).
+## About
 
-## Description
-
-**Portfolio_TK** is an open-source personal portfolio site built to showcase skills, experience, and projects. It is primarily written in JavaScript and aims to provide an engaging and informative online presence.
+This project is a personal portfolio website designed to showcase skills, experience, projects, and achievements in a clean, responsive, and professional way. It is primarily built with **JavaScript**, along with **CSS** and **HTML**.
 
 ## Features
 
-- Presentation of personal skills, experience, and achievements
-- Display of programming and project portfolio
-- Responsive design for viewing on desktop and mobile
-- Hosted on Vercel for fast and reliable performance
+- Clean and modern personal portfolio design
+- Sections for skills, experience, projects, and achievements
+- Responsive layout for desktop and mobile devices
+- Fast deployment and hosting on Vercel
+
+## Live Site
+
+Visit the portfolio here:  
+[https://tanmaykapoorportfolio.vercel.app](https://tanmaykapoorportfolio.vercel.app)
+
+## Tech Stack
+
+- JavaScript
+- HTML
+- CSS
 
 ## Getting Started
 
-To view the portfolio online, visit:  
-[https://tanmaykapoorportfolio.vercel.app](https://tanmaykapoorportfolio.vercel.app)
+To run the project locally:
 
-To run locally:
-
-1. Clone this repository:
+1. Clone the repository:
    ```bash
    git clone https://github.com/Tanmayk03/Portfolio_TK.git
    ```
-2. Change to the project directory:
+2. Navigate to the project directory:
    ```bash
    cd Portfolio_TK
    ```
-3. Install dependencies (assuming a Node.js/JavaScript-based project):
+3. Install dependencies:
    ```bash
    npm install
    ```
@@ -38,26 +44,17 @@ To run locally:
    ```bash
    npm start
    ```
-   The site should be accessible at `http://localhost:3000`.
 
-## Technologies Used
-
-- JavaScript
-- Node.js (if applicable)
-- (Add any framework/library if used: e.g., React, Next.js, etc.)
+The site should then be available at `http://localhost:3000`.
 
 ## Contributing
 
-Feel free to fork, submit issues, or contribute with pull requests!
+Contributions, issues, and feature suggestions are welcome. Feel free to fork the repository and open a pull request.
 
 ## License
 
-This project does not yet specify a license. Please contact the repository owner if you wish to use the code for production purposes.
+No license has been specified yet. If you plan to reuse this code, please contact the repository owner first.
 
 ## Author
 
 - [Tanmay Kapoor](https://github.com/Tanmayk03)
-
----
-
-_This README is generated based on available public repository metadata and the project homepage. Please customize it further based on your project's specifics._
