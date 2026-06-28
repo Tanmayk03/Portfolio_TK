@@ -1,7 +1,5 @@
 # Portfolio_TK
-
 Welcome to **Portfolio_TK** — the source code for [Tanmay Kapoor's Portfolio Website](https://tanmaykapoorportfolio.vercel.app).
-
 ## About
 
 This project is a personal portfolio website designed to showcase skills, experience, projects, and achievements in a clean, responsive, and professional way. It is primarily built with **JavaScript**, along with **CSS** and **HTML**.
